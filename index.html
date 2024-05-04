@@ -12,8 +12,6 @@
 
 <body>
   <script src="js/bootstrap.bundle.min.js"></script>
-  
- 
 
   <header>
     <!-- slide 1 -->
@@ -51,7 +49,9 @@
         </form>
         <div class="d-flex align-items-center">
           <!-- Icono del carrito -->
-          <i class="fas fa-shopping-cart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#carritoModal"></i>
+          <a href="#offcanvasRight">
+            <i class="fas fa-shopping-cart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#carritoModal"></i>
+          </a>
           <!-- Icono del corazón -->
           <i class="fas fa-heart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
           <!-- Icono del usuario -->
@@ -60,18 +60,13 @@
       </div>
     </nav>
 
-    <!-- Modal del carrito -->
-    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="carritoModalLabel">Carrito de compras</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Contenido del carrito de compras...
-          </div>
-        </div>
+    <!-- off canvas del carrito -->
+    <div class="offcanvas offcanvas-end" id="offcanvasRight">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- Contenido del carrito -->
       </div>
     </div>
 
@@ -84,7 +79,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Contenido de la lista de deseos...
+            Necesita tener una cuenta para agregar libros a la lista...
           </div>
         </div>
       </div>
@@ -684,7 +679,9 @@
             <li><a href="#textos-escolares">Textos Escolares</a></li>
             <li><a href="destacado.html">Destacado</a></li>
             <li><a href="#promociones">Promociones</a></li>
-            <li><a href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Librerias FMN</a></li>
+            <li><a
+                href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Librerias
+                FMN</a></li>
           </ul>
         </div>
         <div class="content">
@@ -718,7 +715,7 @@
   <!-- jc -->
 
   <!-- fin -->
-  
+
 </body>
 
 </html>
