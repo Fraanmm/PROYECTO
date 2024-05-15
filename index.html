@@ -49,26 +49,79 @@
         </form>
         <div class="d-flex align-items-center">
           <!-- Icono del carrito -->
-          <a href="#offcanvasRight">
-            <i class="fas fa-shopping-cart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#carritoModal"></i>
-          </a>
+          <i class="fas fa-shopping-cart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#offcanvasRight"></i>
           <!-- Icono del corazón -->
           <i class="fas fa-heart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
-          <!-- Icono del usuario -->
-          <i class="fas fa-user fs-4" data-bs-toggle="modal" data-bs-target="#usuarioModal"></i>
+          <!-- btn de inicio session -->
+          <button id="loginButton" class="btn">Iniciar Sesión</button>
         </div>
       </div>
     </nav>
 
-    <!-- off canvas del carrito -->
-    <div class="offcanvas offcanvas-end" id="offcanvasRight">
-      <div class="offcanvas-header">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+
+    <!-- Contenedor del formulario de inicio de sesión y registro -->
+    <div class="fondo" id="loginForm">
+      <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+
+      <!-- Formulario de inicio de sesión -->
+      <div class="contenedor-form Login" id="loginFormContent">
+        <h2>Iniciar Sesión</h2>
+        <form action="#">
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" required>
+            <label for="#">Email</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" required>
+            <label for="#">Contraseña</label>
+          </div>
+          <div class="recordar">
+            <label for="#"><input type="checkbox">Recordar Sesión</label>
+            <a href="#">¿Olvidé la Contraseña?</a>
+          </div>
+          <button type="submit" class="btn">Iniciar Sesión</button>
+          <div class="registrar">
+            <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
+          </div>
+        </form>
       </div>
-      <div class="offcanvas-body">
-        <!-- Contenido del carrito -->
+
+      <!-- Formulario de registro -->
+      <div class="contenedor-form registrar" id="registroFormContent">
+        <h2>Registrarse</h2>
+        <form action="#">
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-user"></i></span>
+            <input type="text" required>
+            <label for="#">Nombre de Usuario</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" required>
+            <label for="#">Email</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" required>
+            <label for="#">Contraseña</label>
+          </div>
+          <div class="recordar">
+            <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
+          </div>
+          <button type="submit" class="btn">Registrarme</button>
+          <div class="registrar">
+            <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+          </div>
+        </form>
       </div>
     </div>
+
+    <!-- off canvas del carrito -->
+
+    <!-- fin offcanvas -->
 
     <!-- Modal deseados -->
     <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
@@ -84,21 +137,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal del usuario -->
-    <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="usuarioModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="usuarioModalLabel">Perfil de usuario</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Contenido del perfil de usuario...
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- fin barrabusqueda -->
 
 
@@ -108,11 +146,15 @@
 
     <nav class="navegacion">
       <ul class="menu">
-        <li><a href="#">Inicio</a>
+        <li><a href="#">Libros</a>
           <ul class="submenu">
-            <li><a href="#">servicio1</a></li>
-            <li><a href="#">servicio2</a></li>
-            <li><a href="#">servicio3</a></li>
+            <li><a href="#libros">Libros</a></li>
+            <li><a href="#libros-importados">Libros Importados</a></li>
+            <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
+            <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
+            <li><a href="#textos-escolares">Textos Escolares</a></li>
+            <li><a href="destacado.html">Destacado</a></li>
+            <li><a href="#promociones">Promociones</a></li>
           </ul>
         </li>
         <li><a href="#">Nosotros</a>
@@ -556,32 +598,38 @@
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
+        <button onclick="window.location.href='comicmanga.html'" class="btn">
           <img src="tematicas/comicMangas.png" alt="Cargando..." />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
+        <button onclick="window.location.href='literatura.html'" class="btn">
           <img src="tematicas/literaturaChilena.png" alt="Cargando..." />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
+        <button onclick="window.location.href='novelaholocausto.html'" class="btn">
           <img src="tematicas/novelaHolocausto.png" alt="Cargando..." />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
+        <button onclick="window.location.href='cambioclimatico.html'" class="btn">
           <img src="tematicas/cambioClimatico.png" alt="Cargando..." />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
+        <button onclick="window.location.href='promocionesEscolares.html'" class="btn">
           <img src="tematicas/promocionesEscolares.png" alt="Cargando..." />
+        </button>
+      </div>
+
+      <div class="boton-contenedor">
+        <button onclick="window.location.href='destacado.html'" class="btn">
+          <img src="tematicas/destacado.png" alt="Cargando..." />
         </button>
       </div>
     </div>
@@ -713,9 +761,8 @@
   </footer>
   ----------------------------------------
   <!-- jc -->
-
+  <script src="app.js"></script>
   <!-- fin -->
-
 </body>
 
 </html>
