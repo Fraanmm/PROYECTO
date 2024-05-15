@@ -22,6 +22,8 @@ registrarLink.addEventListener("click", () => {
   loginFormContent.style.display = "none";
 });
 
+/*  */
+
 const btnCart = document.querySelector('.container-cart-icon');
 const containerCartProducts = document.querySelector(
     '.container-cart-products'
