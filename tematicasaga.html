@@ -13,37 +13,49 @@
 <body>
   <script src="js/bootstrap.bundle.min.js"></script>
   <header>
+ 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <img src="img/logo.png" alt="Cargando..." width="120" />
+    <a class="navbar-brand me-auto">Libreria FMN</a>
+    <div id="icon-menu">
+      <i class="fas fa-bars"></i>
+  </div>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <img src="img/logo.png" alt="Cargando..." width="120" />
-        <a class="navbar-brand me-auto">Libreria FMN</a>
-        <form class="d-block me-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Busqueda por Titulo" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <div class="d-flex align-items-center">
-          <!-- Contenedor de los íconos -->
-          <div class="container-icon d-flex align-items-center me-3">
-            <!-- Icono del carrito -->
-            <div class="container-cart-icon position-relative me-3">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <div
-                class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <span id="contador-productos">0</span>
-              </div>
-            </div>
-            <!-- Icono del corazón -->
-            <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal"
-              data-bs-target="#corazonModal"></i>
+  <div id="ctn-bars-search">
+    <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+</div>
+
+<ul id="box-search">
+    <li><a href="destacado.html"><i class="fas fa-search"></i>Destacado</a></li>
+    <li><a href="comicmanga.html"><i class="fas fa-search"></i>Comics</a></li>
+    <li><a href="comicmanga.html"><i class="fas fa-search"></i>Mangas</a></li>
+    <li><a href="cambioclimatico.html"><i class="fas fa-search"></i>Cambio Climático</a></li>
+    <li><a href="novelaholocausto.html"><i class="fas fa-search"></i>Novelas del Holocausto</a></li>
+    <li><a href="descuentos.html"><i class="fas fa-search"></i>Descuentos</a></li>
+    <li><a href="harryPotter.html"><i class="fas fa-search"></i>Harry Potter</a></li>
+    <li><a href="promocionesEscolares.html"><i class="fas fa-search"></i>Promociones Escolares</a></li>
+</ul>
+
+<div id="cover-ctn-search"></div>
+    <div class="d-flex align-items-center">
+      <!-- Contenedor de los íconos -->
+      <div class="container-icon d-flex align-items-center me-3">
+        <!-- Icono del carrito -->
+        <div class="container-cart-icon position-relative me-3">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <span id="contador-productos">0</span>
           </div>
-          <!-- Botón de inicio de sesión -->
-          <button id="loginButton" class="btn">Iniciar Sesión</button>
         </div>
+        <!-- Icono del corazón -->
+        <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
       </div>
-    </nav>
+      <!-- Botón de inicio de sesión -->
+      <button id="loginButton" class="btn">Iniciar Sesión</button>
+    </div>
+  </div>
+</nav>
 
     <!-- Contenedor del formulario de inicio de sesión y registro -->
     <div class="fondo" id="loginForm">
