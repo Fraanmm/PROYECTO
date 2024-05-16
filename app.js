@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     iconoCerrar.addEventListener("click", () => {
       loginForm.classList.remove("active");
+      loginForm.classList.remove("fondo")
     });
   
     const registrarLink = document.querySelector(".registrar-link");

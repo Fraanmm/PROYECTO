@@ -511,17 +511,20 @@ a i {
   backdrop-filter: blur(20px);
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
   overflow: hidden;
-  transition: height 0.5s ease; 
+  visibility: hidden;
+  transition: height 0.5s ease,visibility 0.5s;
 }
 
 .fondo.active {
-  height: 455px; 
+  height: 455px;
+  visibility: visible;
 }
 
 .fondo .contenedor-form {
   width: 100%;
-  padding: 40px;
-  transition: transform .17s ease; 
+  margin-left: 50px;
+  margin-top: 100px;
+  transition: transform 0.5s ease; 
 }
 
 .fondo.active .contenedor-form.login {
@@ -529,7 +532,7 @@ a i {
 }
 
 .fondo.active .contenedor-form.registrar {
-  transform: translateX(-50%); 
+  transform: translateX(0%); 
 }
 /* fin inicio sesion */
 
