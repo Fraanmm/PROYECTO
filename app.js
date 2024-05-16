@@ -128,4 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
       countProducts.innerText = totalOfProducts;
     };
   });
+
+  /* BARRA DE BUSQUEDA */
+
+  // Mostrar la caja de sugerencias al escribir en la barra de búsqueda
+document.getElementById('inputSearch').addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase();
+    var listItems = document.querySelectorAll('#box-search li');
+    listItems.forEach(function(item) {
+        var text = item.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    document.getElementById('box-search').style.display = 'block';
+  })
+
+
   
