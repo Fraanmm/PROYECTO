@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
     const loginButton = document.getElementById("loginButton");
     const loginForm = document.getElementById("loginForm");
     const loginFormContent = document.getElementById("loginFormContent");
@@ -13,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     iconoCerrar.addEventListener("click", () => {
       loginForm.classList.remove("active");
-      loginForm.classList.remove("fondo")
     });
   
     const registrarLink = document.querySelector(".registrar-link");
@@ -147,5 +147,10 @@ document.getElementById('inputSearch').addEventListener('input', function() {
     document.getElementById('box-search').style.display = 'block';
   })
 
+  /* Validar registro
+  Usuario minimo 8 letras
+  correo con formato @gmail|@live|etc
+  contraseña minimo 8 letras/numeros
+  */
 
   
