@@ -1,237 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="diseño.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
-    <title>LibreriaFMN/ComicMangas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibreriaFMN/Destacado</title>
+  <link rel="stylesheet" href="diseño.css" />
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <img src="img/logo.png" alt="Cargando..." width="120" />
+        <a class="navbar-brand me-auto">Libreria FMN</a>
+        <div id="icon-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <div id="ctn-bars-search">
+          <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+        </div>
+
+        <ul id="box-search">
+          <li><a href="destacado.html"><i class="fas fa-search"></i>Destacado</a></li>
+          <li><a href="comicmanga.html"><i class="fas fa-search"></i>Comics</a></li>
+          <li><a href="comicmanga.html"><i class="fas fa-search"></i>Mangas</a></li>
+          <li><a href="cambioclimatico.html"><i class="fas fa-search"></i>Cambio Climático</a></li>
+          <li><a href="novelaholocausto.html"><i class="fas fa-search"></i>Novelas del Holocausto</a></li>
+          <li><a href="descuentos.html"><i class="fas fa-search"></i>Descuentos</a></li>
+          <li><a href="harryPotter.html"><i class="fas fa-search"></i>Harry Potter</a></li>
+          <li><a href="promocionesEscolares.html"><i class="fas fa-search"></i>Promociones Escolares</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center">
+          <!-- Contenedor de los íconos -->
+          <div class="container-icon d-flex align-items-center me-3">
+            <!-- Icono del carrito -->
+            <div class="container-cart-icon position-relative me-3">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div
+                class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span id="contador-productos">0</span>
+              </div>
+            </div>
+            <!-- Icono del corazón -->
+            <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal"
+              data-bs-target="#corazonModal"></i>
+          </div>
+          <!-- Botón de inicio de sesión -->
+          <button id="loginButton" class="btn">Iniciar Sesión</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenedor del formulario de inicio de sesión y registro -->
+    <div class="fondo" id="loginForm">
+      <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+
+      <!-- Formulario de inicio de sesión -->
+      <div class="contenedor-form Login" id="loginFormContent">
+        <h2>Iniciar Sesión</h2>
+        <form action="#">
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" required>
+            <label for="#">Email</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" required>
+            <label for="#">Contraseña</label>
+          </div>
+          <div class="recordar">
+            <label for="#"><input type="checkbox">Recordar Sesión</label>
+            <a href="#">¿Olvidé la Contraseña?</a>
+          </div>
+          <button type="submit" class="btn">Iniciar Sesión</button>
+          <div class="registrar">
+            <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulario de registro -->
+      <div class="contenedor-form registrar" id="registroFormContent">
+        <h2>Registrarse</h2>
+        <form action="#">
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-user"></i></span>
+            <input type="text" required>
+            <label for="#">Nombre de Usuario</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" required>
+            <label for="#">Email</label>
+          </div>
+          <div class="contenedor-input">
+            <span class="icono"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" required>
+            <label for="#">Contraseña</label>
+          </div>
+          <div class="recordar">
+            <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
+          </div>
+          <button type="submit" class="btn">Registrarme</button>
+          <div class="registrar">
+            <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal deseados -->
+    <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="corazonModalLabel">Lista de deseos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Necesita tener una cuenta para agregar libros a la lista...
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- inicio categoria -->
+    <br>
+    <center>
+      <h1>nombre categoria</h1>
+    </center>
+    <br>
+    <!-- cartas -->
+    <div class="container-cart-products hidden-cart">
+      <div class="row-product hidden">
+        <div class="cart-product">
+          <div class="info-cart-product">
+            <span class="cantidad-producto-carrito">1</span>
+            <p class="titulo-producto-carrito"> nombre producto</p>
+            <span class="precio-producto-carrito">$16.900</span>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="icon-close">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="cart-total hidden">
+        <h3>Total:</h3>
+        <span class="total-pagar">$200</span>
+      </div>
+      <p class="cart-empty">El carrito está vacío</p>
+    </div>
+    </div>
+
+    <div class="container-items">
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/a silent.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>A silent voice 01 </h2>
+          <p class="price">$13600</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/amigasdeverdad.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Amigas de verdad</h2>
+          <p class="price">$17490</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/avengers.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Avengers - Tomo 06: La Llegada Del Fénix </h2>
+          <p class="price">$14890</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/batman.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Batman And Robin Eternal: Omnibus </h2>
+          <p class="price">$116990</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/wonderwoman.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Wonder Woman: Rebirth - Tomo 01: The Lies </h2>
+          <p class="price">$20990 </p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/demonslayer.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>demonslayer</h2>
+          <p class="price">$24700</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/dragonball.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Dragon Ball Compendio 01 - Guía De La Historia Y Su Mundo</h2>
+          <p class="price">$37990</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/saiko one.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Saiko One-Shots - Sobrecubierta Exclusiva </h2>
+          <p class="price">$9990 </p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <figure>
+          <img src="destacado/comicmanga/spiderman.jpg" alt="producto" width="140" />
+        </figure>
+        <div class="info-product">
+          <h2>Amazing Spider-Man</h2>
+          <p class="price">$23490 </p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <br>
+  <footer>
+    <div class="container">
+      <!--  Logo y mapa -->
+      <div class="section">
+        <div class="logo-section">
           <div class="container-fluid">
-            <img src="img/logo.png" alt="Cargando..." width="120" />
-            <a class="navbar-brand me-auto">Libreria FMN</a>
-            <form class="d-block me-auto" role="search">
-              <input class="form-control me-2" type="search" placeholder="Busqueda por Titulo" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
-            <div class="d-flex align-items-center">
-              <!-- Icono del carrito -->
-              <i class="fas fa-shopping-cart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#offcanvasRight"></i>
-              <!-- Icono del corazón -->
-              <i class="fas fa-heart fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
-              <!-- btn de inicio session -->
-              <button id="loginButton" class="btn">Iniciar Sesión</button>
-            </div>
-          </div>
-        </nav>
-    
-        <!-- Contenedor del formulario de inicio de sesión y registro -->
-        <div class="fondo" id="loginForm">
-          <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
-    
-          <!-- Formulario de inicio de sesión -->
-          <div class="contenedor-form Login" id="loginFormContent">
-            <h2>Iniciar Sesión</h2>
-            <form action="#">
-              <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-                <input type="email" required>
-                <label for="#">Email</label>
-              </div>
-              <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" required>
-                <label for="#">Contraseña</label>
-              </div>
-              <div class="recordar">
-                <label for="#"><input type="checkbox">Recordar Sesión</label>
-                <a href="#">¿Olvidé la Contraseña?</a>
-              </div>
-              <button type="submit" class="btn">Iniciar Sesión</button>
-              <div class="registrar">
-                <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
-              </div>
-            </form>
-          </div>
-    
-          <!-- Formulario de registro -->
-          <div class="contenedor-form registrar" id="registroFormContent">
-            <h2>Registrarse</h2>
-            <form action="#">
-              <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-user"></i></span>
-                <input type="text" required>
-                <label for="#">Nombre de Usuario</label>
-              </div>
-              <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-                <input type="email" required>
-                <label for="#">Email</label>
-              </div>
-              <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" required>
-                <label for="#">Contraseña</label>
-              </div>
-              <div class="recordar">
-                <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
-              </div>
-              <button type="submit" class="btn">Registrarme</button>
-              <div class="registrar">
-                <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
-              </div>
-            </form>
+            <a class="navbar-brand">
+              <h4>Conoce Nuestras Tiendas</h4>
+            </a>
           </div>
         </div>
-    
-        <!-- off canvas del carrito -->
-    
-        <!-- fin offcanvas -->
-    
-        <!-- Modal deseados -->
-        <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="corazonModalLabel">Lista de deseos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Necesita tener una cuenta para agregar libros a la lista...
-              </div>
-            </div>
+        <div class="map-section">
+          <div class="conteMapa">
+            <a href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">
+              <img src="img/mapaTienda.jpg" alt="Cargando..." width="340" height="220" />
+            </a>
           </div>
         </div>
-      </header>
+      </div>
+      <!-- Fin  -->
 
-      <main>
+      <!--  Envío, contacto y método de pago -->
+      <div class="section">
+        <div class="icons">
+          <div class="icon">
+            <i class="fa-solid fa-truck-fast"></i>
+            <p>Envío a todo Chile</p>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-phone"></i>
+            <p>Contacto: +569 12345678</p>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-credit-card"></i>
+            <p>Medios de Pago</p>
 
-      </main>
-<footer>
-        <div class="container">
-          <!--  Logo y mapa -->
-          <div class="section">
-            <div class="logo-section">
-              <div class="container-fluid">
-                <a class="navbar-brand">
-                  <h4>Conoce Nuestras Tiendas</h4>
-                </a>
-              </div>
-            </div>
-            <div class="map-section">
-              <div class="conteMapa">
-                <a href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">
-                  <img src="img/mapaTienda.jpg" alt="Cargando..." width="340" height="220" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Fin  -->
-    
-          <!--  Envío, contacto y método de pago -->
-          <div class="section">
-            <div class="icons">
-              <div class="icon">
-                <i class="fa-solid fa-truck-fast"></i>
-                <p>Envío a todo Chile</p>
-              </div>
-              <div class="icon">
-                <i class="fa-solid fa-phone"></i>
-                <p>Contacto: +569 12345678</p>
-              </div>
-              <div class="icon">
-                <i class="fa-solid fa-credit-card"></i>
-                <p>Medios de Pago</p>
-    
-              </div>
-            </div>
-          </div>
-          <!-- Fin -->
-    
-          <!-- quienes somos -->
-          <div class="section">
-            <div class="about-us">
-              <h3>Quiénes somos</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis fermentum lorem. Aliquam erat volutpat.
-                Integer vel volutpat orci.</p>
-              <button class="btn">Ver más</button>
-            </div>
-          </div>
-          <!-- fin quienes somos  -->
-        </div>
-        <!-- fin general -->
-    
-        <br>
-        <hr>
-        <div class="container">
-          <div class="contelogo">
-            <img src="img/logo.png" alt="Cargando" width="200">
-          </div>
-          <div class="col">
-            <div>
-              <p class="title">SERVICIO AL CLIENTE</p>
-              <ul>
-                <li><a href="index2.html">¿Cómo comprar en libreriasfmn.cl?</a></li>
-                <li><a href="index2.html">Políticas de Cambios y Devoluciones</a></li>
-                <li><a href="index2.html">Términos, Condiciones y Políticas de Privacidad</a></li>
-                <li><a href="index2.html">Políticas de Despacho</a></li>
-                <li><a href="index2.html">Políticas de Retiro en Tienda</a></li>
-                <li><a href="index2.html">Medios de Pago</a></li>
-                <li><a href="index2.html">Club FMN</a></li>
-                <li><a href="index2.html">Atención al Cliente</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col">
-            <div class="content">
-              <p class="title">COMPRA POR CATEGORÍA</p>
-              <ul>
-                <li><a href="#libros">Libros</a></li>
-                <li><a href="#libros-importados">Libros Importados</a></li>
-                <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
-                <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
-                <li><a href="#textos-escolares">Textos Escolares</a></li>
-                <li><a href="destacado.html">Destacado</a></li>
-                <li><a href="#promociones">Promociones</a></li>
-                <li><a
-                    href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Librerias
-                    FMN</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <p class="title">NUESTRA EMPRESA</p>
-              <ul>
-                <li><a
-                    href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Nuestras
-                    Tiendas</a></li>
-              </ul>
-            </div>
-            <div class="content">
-              <p class="title">CONTACTO</p>
-              <ul>
-                <li><a href="mailto:ventaonline@libreriasfmn.cl">ventaonline@libreriasfmn.cl</a></li>
-                <li><a href="tel:+569 12345678">+569 12345678</a></li>
-              </ul>
-            </div>
           </div>
         </div>
-    
-        <!-- fin preguntas -->
-    
-        <br />
-        <!-- inicio copyrigth -->
-    
-        <center>© Todos los derechos reservados a FMN Librerias</center>
-    
-        <!-- fin copyrigth -->
-      </footer>
-    <script src="app.js"></script>
+      </div>
+      <!-- Fin -->
+
+      <!-- quienes somos -->
+      <div class="section">
+        <div class="about-us">
+          <h3>Quiénes somos</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis fermentum lorem. Aliquam erat volutpat.
+            Integer vel volutpat orci.</p>
+          <button class="btn">Ver más</button>
+        </div>
+      </div>
+      <!-- fin quienes somos  -->
+    </div>
+    <!-- fin general -->
+
+    <br>
+    <hr>
+    <div class="container">
+      <div class="contelogo">
+        <img src="img/logo.png" alt="Cargando" width="200">
+      </div>
+      <div class="col">
+        <div>
+          <p class="title">SERVICIO AL CLIENTE</p>
+          <ul>
+            <li><a href="index2.html">¿Cómo comprar en libreriasfmn.cl?</a></li>
+            <li><a href="index2.html">Políticas de Cambios y Devoluciones</a></li>
+            <li><a href="index2.html">Términos, Condiciones y Políticas de Privacidad</a></li>
+            <li><a href="index2.html">Políticas de Despacho</a></li>
+            <li><a href="index2.html">Políticas de Retiro en Tienda</a></li>
+            <li><a href="index2.html">Medios de Pago</a></li>
+            <li><a href="index2.html">Club FMN</a></li>
+            <li><a href="index2.html">Atención al Cliente</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="content">
+          <p class="title">COMPRA POR CATEGORÍA</p>
+          <ul>
+            <li><a href="#libros">Libros</a></li>
+            <li><a href="#libros-importados">Libros Importados</a></li>
+            <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
+            <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
+            <li><a href="#textos-escolares">Textos Escolares</a></li>
+            <li><a href="destacado.html">Destacado</a></li>
+            <li><a href="#promociones">Promociones</a></li>
+            <li><a
+                href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Librerias
+                FMN</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <p class="title">NUESTRA EMPRESA</p>
+          <ul>
+            <li><a
+                href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Nuestras
+                Tiendas</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <p class="title">CONTACTO</p>
+          <ul>
+            <li><a href="mailto:ventaonline@libreriasfmn.cl">ventaonline@libreriasfmn.cl</a></li>
+            <li><a href="tel:+569 12345678">+569 12345678</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- fin preguntas -->
+
+    <br />
+    <!-- inicio copyrigth -->
+
+    <center>© Todos los derechos reservados a FMN Librerias</center>
+
+    <!-- fin copyrigth -->
+  </footer>
+  <script src="app.js"></script>
 </body>
+
 </html>
