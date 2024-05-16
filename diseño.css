@@ -10,7 +10,6 @@
 body{
   margin: 0 auto;
   max-width: 1200px;
-  font-family: 'Lato';
   color: #333;
 }
 
@@ -535,3 +534,50 @@ a i {
 /* fin inicio sesion */
 
 /* destacado */
+
+/*barra busqueda*/
+/* Estilos para la barra de búsqueda */
+#ctn-bars-search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Para que se sobreponga a otros elementos */
+}
+
+#inputSearch {
+  width: 300px; /* Tamaño de la barra de búsqueda */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+/* Estilos para la caja de sugerencias */
+#box-search {
+  display: none; /* Ocultar la caja de sugerencias por defecto */
+  position: absolute;
+  top: calc(65% + 1px); /* Posicionamiento debajo de la barra de búsqueda */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-height: 200px; /* Altura máxima de la caja de sugerencias */
+  overflow-y: auto; /* Permitir desplazamiento vertical si el contenido excede la altura máxima */
+  width: 200px; /* Ancho de la caja de sugerencias */
+}
+
+#box-search li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+/* Mostrar la caja de sugerencias al enfocar la barra de búsqueda */
+#inputSearch:focus + #box-search {
+  display: block;
+}
