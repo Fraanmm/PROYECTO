@@ -153,4 +153,64 @@ document.getElementById('inputSearch').addEventListener('input', function() {
   contraseña minimo 8 letras/numeros
   */
 
-  
+
+  /* btn sagas */
+  document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".btn-theme");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const saga = button.dataset.theme;
+      mostrarCartas(saga);
+    });
+  });
+
+  function mostrarCartas(saga) {
+    // Contenedor de cartas
+    const container = document.getElementById("container-cartas");
+    // Limpia el contenido actual
+    container.innerHTML = "";
+    
+    // Datos de ejemplo de libros para cada saga
+    const sagas = {
+      reinaroja: [
+        { nombre: "Libro 1", precio: "$20", imagen: "libro1.jpg" },
+        { nombre: "Libro 2", precio: "$25", imagen: "libro2.jpg" },
+        { nombre: "Libro 3", precio: "$30", imagen: "libro3.jpg" }
+      ],
+      otraeditorial: [
+        { nombre: "Libro A", precio: "$22", imagen: "libroA.jpg" },
+        { nombre: "Libro B", precio: "$27", imagen: "libroB.jpg" },
+        { nombre: "Libro C", precio: "$32", imagen: "libroC.jpg" }
+      ],
+      // Agrega más sagas con sus respectivos datos de libros si es necesario
+    };
+
+    const libros = sagas[saga];
+
+    if (libros && libros.length > 0) {
+      libros.forEach((libro) => {
+        // Crea un nuevo elemento para la carta del libro
+        const carta = document.createElement("div");
+        carta.classList.add("carta-libro");
+
+        // Construye el contenido de la carta del libro
+        carta.innerHTML = `
+          <div class="imagen-libro">
+            <img src="destacado/sagas/${saga}/${libro.imagen}" alt="${libro.nombre}">
+          </div>
+          <div class="info-libro">
+            <h3>${libro.nombre}</h3>
+            <p>Precio: ${libro.precio}</p>
+          </div>
+        `;
+
+        // Agrega la carta del libro al contenedor
+        container.appendChild(carta);
+      });
+    } else {
+      // Si no hay libros para mostrar, muestra un mensaje
+      container.innerHTML = "<p>No hay libros disponibles para esta saga.</p>";
+    }
+  }
+});

@@ -135,50 +135,75 @@
 
   <main>
     <div class="container">
+      <!-- Botones para cada saga -->
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="destacado/sagas/reinarojasaga/reinaroja.png" alt="Cargando..." />
+        <button onclick="mostrarCartas('reinaroja')" class="btn">
+          <img src="destacado/sagas/reinarojasaga/reinaroja.png" alt="Reina Roja" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="destacado/sagas/crepusculosaga/CREPUSCULO.png" alt="Cargando..." />
+        <button onclick="mostrarCartas('crepusculosaga')" class="btn">
+          <img src="destacado/sagas/crepusculosaga/CREPUSCULO.png" alt="Crepúsculo" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="destacado/sagas/heartstoppersaga/HEARTSTOPPER.png" alt="Cargando..." />
+        <button onclick="mostrarCartas('BRIDGERTON')" class="btn">
+          <img src="destacado/sagas/BRIDGERTON/BRIDGERTON.png" alt="Crepúsculo" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="destacado/sagas/unacortederosasyespinassaga/una corte de rosas y espinas.png" alt="Cargando..." />
+        <button onclick="mostrarCartas('heartstoppersaga')" class="btn">
+          <img src="destacado/sagas/heartstoppersaga/HEARTSTOPPER.png" alt="Crepúsculo" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="" alt="Cargando..." />
+        <button onclick="mostrarCartas('unacortederosasyespinassaga')" class="btn">
+          <img src="destacado/sagas/unacortederosasyespinassaga/una corte de rosas y espinas.png" alt="Crepúsculo" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="" alt="Cargando..." />
+        <button onclick="mostrarCartas('CINCUENTASOMBRAS')" class="btn">
+          <img src="destacado/sagas/CINCUENTASOMBRAS/50 SOMBRAS.png" alt="Crepúsculo" />
         </button>
       </div>
 
       <div class="boton-contenedor">
-        <button onclick="window.location.href='#'" class="btn">
-          <img src="" alt="Cargando..." />
+        <button onclick="mostrarCartas('HUNGRYGAMES')" class="btn">
+          <img src="destacado/sagas/HUNGRYGAMES/HUNGRY GAMES.png" alt="Crepúsculo" />
         </button>
       </div>
+
+      <!-- cartas -->
+      <div id="container-cartas" class="container-cart-products hidden-cart">
+        <div class="row-product">
+          <div class="cart-product">
+            <div class="info-cart-product">
+              <span class="cantidad-producto-carrito">1</span>
+              <p class="titulo-producto-carrito">La reina roja</p>
+              <span class="precio-producto-carrito">$17900</span>
+            </div>
+            <img src="destacado/sagas/reinarojasaga/lareinaroja.webp" alt="Título del libro 1" width="140" />
+          </div>
+        </div>
+        <!-- Más cartas para la saga "Reina Roja" -->
+      </div>
+      
+      
+<!-- fin -->
+      <!-- Paginación -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <!-- Los elementos de paginación se agregarán aquí con JavaScript -->
+        </ul>
+      </nav>
     </div>
-
   </main>
+
 
   <footer>
     <div class="container">
