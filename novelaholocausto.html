@@ -87,35 +87,35 @@
       </div>
 
       <!-- Formulario de registro -->
-      <div class="contenedor-form registrar" id="registroFormContent">
-        <h2>Registrarse</h2>
-        <form action="#">
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-user"></i></span>
-            <input type="text" required>
-            <label for="#">Nombre de Usuario</label>
-          </div>
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-            <input type="email" required>
-            <label for="#">Email</label>
-          </div>
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" required>
-            <label for="#">Contraseña</label>
-          </div>
-          <div class="recordar">
-            <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
-          </div>
-          <button type="submit" class="btn">Registrarme</button>
-          <div class="registrar">
-            <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
-          </div>
-        </form>
-      </div>
+          <div class="contenedor-form registrar" id="registroFormContent">
+    <h2>Registrarse</h2>
+    <form id="Usuarioform">
+      <div class="contenedor-input">
+    <span class="icono"><i class="fa-solid fa-user"></i></span>
+    <div id="usernameError" class="error-message">El nombre de usuario debe tener al menos 8 caracteres.</div>
+    <input type="text" id="usuarionombre" required>
+    <label for="usuarionombre">Nombre de Usuario</label>
     </div>
-
+      <div class="contenedor-input">
+        <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+        <input type="email" id="loginemaill" required>
+        <label for="loginemaill">Email</label>
+      </div>
+      <div class="contenedor-input">
+        <span class="icono"><i class="fa-solid fa-lock"></i></span>
+        <input type="password" id="loginpasssword" required>
+        <label for="loginpasssword">Contraseña</label>
+      </div>
+      <div class="recordar">
+        <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
+      </div>
+      <button type="submit" class="btn">Registrarme</button>
+      <div class="registrar">
+        <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+      </div>
+    </form>
+  </div>
+      
     <!-- Modal deseados -->
     <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
       <div class="modal-dialog">
