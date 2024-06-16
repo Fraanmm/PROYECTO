@@ -584,3 +584,41 @@ a i {
 #inputSearch:focus + #box-search {
   display: block;
 }
+
+/* saga */
+
+/* Estilos para el diseño de las cartas de libro */
+/* Agrega tus estilos de diseño de cartas aquí */
+
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* error */
+.error-message {
+  display: none;
+  color: rgb(255, 0, 166);
+  font-size: 14px;
+  margin-top: -18px; /* Ajusta el margen según sea necesario */
+}
