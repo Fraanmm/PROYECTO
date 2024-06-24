@@ -7,117 +7,15 @@
   <title>LibreriaFMN/Destacado</title>
   <link rel="stylesheet" href="diseño.css" />
 
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <script src="js/bootstrap.bundle.min.js"></script>
 
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <img src="img/logo.png" alt="Cargando..." width="120" />
-        <a class="navbar-brand me-auto">Libreria FMN</a>
-        <form class="d-block me-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Busqueda por Titulo" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <div class="d-flex align-items-center">
-          <!-- Contenedor de los íconos -->
-          <div class="container-icon d-flex align-items-center me-3">
-            <!-- Icono del carrito -->
-            <div class="container-cart-icon position-relative me-3">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <div class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <span id="contador-productos">0</span>
-              </div>
-            </div>
-            <!-- Icono del corazón -->
-            <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
-          </div>
-          <!-- Botón de inicio de sesión -->
-          <button id="loginButton" class="btn">Iniciar Sesión</button>
-        </div>
-      </div>
-    </nav>
-    
-    <!-- Contenedor del formulario de inicio de sesión y registro -->
-    <div class="fondo" id="loginForm">
-      <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+  {% include 'base/header.html' %}
 
-      <!-- Formulario de inicio de sesión -->
-      <div class="contenedor-form Login" id="loginFormContent">
-        <h2>Iniciar Sesión</h2>
-        <form action="#">
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-            <input type="email" id="email" required>
-            <label for="email">Email</label>
-          </div>
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" id="contrasena" required>
-            <label for="contrasena">Contraseña</label>
-          </div>
-          <div class="recordar">
-            <label for="recordar"><input type="checkbox" id="recordar">Recordar Sesión</label>
-            <a href="#">¿Olvidé la Contraseña?</a>
-          </div>
-          <button type="button" id="loginButton" class="btn">Iniciar Sesión</button>
-          <div class="registrar">
-            <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
-          </div>
-        </form>
-      </div>
-    
-      <!-- Formulario de registro -->
-      <div class="contenedor-form registrar" id="registroFormContent">
-        <h2>Registrarse</h2>
-        <form action="#" id="registroForm">
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-user"></i></span>
-            <input type="text" id="nombreUsuario" required>
-            <label for="nombreUsuario">Nombre de Usuario</label>
-          </div>
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-            <input type="email" id="correo" required>
-            <label for="correo">Email</label>
-          </div>
-          <div class="contenedor-input">
-            <span class="icono"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" id="contrasena" required>
-            <label for="contrasena">Contraseña</label>
-          </div>
-          <div class="recordar">
-            <label for="aceptar"><input type="checkbox" id="aceptar">Acepto los términos y condiciones</label>
-          </div>
-          <button type="button" id="registrarButton" class="btn">Registrarme</button>
-          <div class="registrar">
-            <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
-          </div>
-        </form>
-      </div>
-    </div>
-    
-    <!-- Modal deseados -->
-    <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="corazonModalLabel">Lista de deseos</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Necesita tener una cuenta para agregar libros a la lista...
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
   <main>
     <!-- inicio destacado -->
     <br>
