@@ -86,7 +86,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="{% static 'images/imgn.img/banner3.png' %}"
+              src="{% static 'images/imgn.img/banner3.jpg' %}"
               class="d-block w-100"
               alt="Cargando 3"
             />
@@ -402,42 +402,41 @@
             <div class="row">
               <div class="col">
                 <img
-                  src="destacado/novedades/albordedelacaida.webp"
+                  src="{% static 'images/dsdo/novedades/albordedelacaida.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/avuelodepajaro.webp"
+                  src="{% static 'images/dsdo/novedades/avuelodepajaro.webp' %}"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/novedades/bienvenidoalanhk.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/bienvenidoalanhk.webp"
+                  src="{% static 'images/dsdo/novedades/cocinaconharrypotter.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/cocinaconharrypotter.webp"
+                  src="{% static 'images/dsdo/novedades/cuestiondegustos.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/cuestiondegustos.webp"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="destacado/novedades/desdemiinterior.webp"
+                  src="{% static 'images/dsdo/novedades/desdemiinterior.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
@@ -448,35 +447,35 @@
             <div class="row">
               <div class="col">
                 <img
-                  src="destacado/novedades/diassalvajes.webp"
+                  src="{% static 'images/dsdo/novedades/diassalvajes.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/hoyestanochemañana.webp"
+                  src="{% static 'images/dsdo/novedades/hoyestanochemañana.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/malaonda.webp"
+                  src="{% static 'images/dsdo/novedades/malaonda.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/memoriaselaguilayeljaguar.webp"
+                "{% static 'images/dsdo/novedades/memoriaselaguilayeljaguar.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/starwarsdarthvader.webp"
+                  src="{% static 'images/dsdo/novedades/starwarsdarthvader.webp' %}"
                   oky
                   class="d-block w-100"
                   alt="..."
@@ -484,7 +483,7 @@
               </div>
               <div class="col">
                 <img
-                  src="destacado/novedades/todosloshombresdelrey.webp"
+                  src="{% static 'images/dsdo/novedades/todosloshombresdelrey.webp' %}"
                   class="d-block w-100"
                   alt="..."
                 />
@@ -873,7 +872,8 @@
 
     {% include 'base/footer.html'%} ----------------------------------------
     <!-- jc -->
-    <script src="app.js"></script>
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>p
     <!-- fin -->
   </body>
 </html>
