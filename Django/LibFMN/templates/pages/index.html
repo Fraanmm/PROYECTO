@@ -1,670 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LibreriaFMN</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LibreriaFMN</title>
+    {% load static%}
 
-  {% load static%}
+    <link rel="stylesheet" href="{% static 'css/diseño.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/5c058e9f8c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  </head>
 
-  <link rel="stylesheet" href="{% static 'css/diseño.css' %}" />
-  <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-</head>
+  <body>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
-<body>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  
-  {% include 'base/header.html' %}
-
-  <header>
-
-    <!-- slide 1 -->
-
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="envio.img/envio1.gif" class="d-block w-100" alt="Cargando...1" />
-        </div>
-        <div class="carousel-item">
-          <img src="envio.img/envio2.gif" class="d-block w-100" alt="Cargando..2" />
-        </div>
-        <div class="carousel-item">
-          <img src="envio.img/envio3.png" class="d-block w-100" alt="Cargando...3" />
-        </div>
-        <div class="carousel-item">
-          <img src="envio.img/envio4.gif" class="d-block w-100" alt="Cargando...4" />
-        </div>
-      </div>
-    </div>
-
-    <!--  fin slide 1 -->
-
-    <!-- inicio barrabusqueda -->
+   
 
     <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <img src="img/logo.png" alt="Cargando..." width="120" />
-        <a class="navbar-brand me-auto">Libreria FMN</a>
-        <div id="icon-menu">
-          <i class="fas fa-bars"></i>
+      <!-- slide 1 -->
+
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{% static 'images/envio.img/envio1.gif' %}"
+              class="d-block w-100"
+              alt="Cargando...1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/envio.img/envio2.gif' %}"
+              class="d-block w-100"
+              alt="Cargando..2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/envio.img/envio3.png' %}"
+              class="d-block w-100"
+              alt="Cargando...3"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/envio.img/envio4.gif' %}"
+              alt="Cargando...4"
+            />
+          </div>
+        </div>
       </div>
 
-      <div id="ctn-bars-search">
-        <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
-    </div>
-  
-    <ul id="box-search">
-        <li><a href="destacado.html"><i class="fas fa-search"></i>Destacado</a></li>
-        <li><a href="comicmanga.html"><i class="fas fa-search"></i>Comics</a></li>
-        <li><a href="comicmanga.html"><i class="fas fa-search"></i>Mangas</a></li>
-        <li><a href="cambioclimatico.html"><i class="fas fa-search"></i>Cambio Climático</a></li>
-        <li><a href="novelaholocausto.html"><i class="fas fa-search"></i>Novelas del Holocausto</a></li>
-        <li><a href="descuentos.html"><i class="fas fa-search"></i>Descuentos</a></li>
-        <li><a href="harryPotter.html"><i class="fas fa-search"></i>Harry Potter</a></li>
-        <li><a href="promocionesEscolares.html"><i class="fas fa-search"></i>Promociones Escolares</a></li>
-    </ul>
-  
-    <div id="cover-ctn-search"></div>
-        <div class="d-flex align-items-center">
-          <!-- Contenedor de los íconos -->
-          <div class="container-icon d-flex align-items-center me-3">
-            <!-- Icono del carrito -->
-            <div class="container-cart-icon position-relative me-3">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <div class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <span id="contador-productos">0</span>
+      <!--  fin slide 1 -->
+
+      
+      {% include 'base/header.html' %}
+
+      <!-- Fin link -->
+
+      <!-- slide 2 -->
+
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{% static 'images/imgn.img/banner1.png' %}"
+              class="d-block w-100"
+              alt="Cargando...1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/imgn.img/banner2.png' %}"
+              class="d-block w-100"
+              alt="Cargando 2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/imgn.img/banner3.png' %}"
+              class="d-block w-100"
+              alt="Cargando 3"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/imgn.img/banner4.png' %}"
+              class="d-block w-100"
+              alt="Cargando 4"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- fin slide 2 -->
+      <br />
+    </header>
+
+    <main>
+      <!-- titulo preventa -->
+
+      <h2>Pre venta</h2>
+
+      <!-- fin titulo -->
+
+      <!-- carrusel preventa -->
+
+      <div
+        id="carouselExampleRide"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/percyjacksonyelcalizdelosdioses.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/laotracaradelaperfeccion.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/unalmadecenizaysangre.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/unmundooscuro.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/jaquematealamor.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/avecessoyunmardelagrimas.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
               </div>
             </div>
-            <!-- Icono del corazón -->
-            <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal" data-bs-target="#corazonModal"></i>
           </div>
-          <!-- Botón de inicio de sesión -->
-          <button id="loginButton" class="btn">Iniciar Sesión</button>
-        </div>
-      </div>
-    </nav>
-
-  <!-- Contenedor del formulario de inicio de sesión y registro -->
-  <div class="fondo" id="loginForm">
-    <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
-
-    <!-- Formulario de inicio de sesión -->
-    <div class="contenedor-form Login" id="loginFormContent">
-      <h2>Iniciar Sesión</h2>
-      <form action="#">
-        <div class="contenedor-input">
-          <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-          <input type="email" required>
-          <label for="#">Email</label>
-        </div>
-        <div class="contenedor-input">
-          <span class="icono"><i class="fa-solid fa-lock"></i></span>
-          <input type="password" required>
-          <label for="#">Contraseña</label>
-        </div>
-        <div class="recordar">
-          <label for="#"><input type="checkbox">Recordar Sesión</label>
-          <a href="#">¿Olvidé la Contraseña?</a>
-        </div>
-        <button type="submit" class="btn">Iniciar Sesión</button>
-        <div class="registrar">
-          <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
-        </div>
-      </form>
-    </div>
-
-    <!-- Formulario de registro -->
-    <div class="contenedor-form registrar" id="registroFormContent">
-      <h2>Registrarse</h2>
-      <form action="#">
-        <div class="contenedor-input">
-          <span class="icono"><i class="fa-solid fa-user"></i></span>
-          <input type="text" required>
-          <label for="#">Nombre de Usuario</label>
-        </div>
-        <div class="contenedor-input">
-          <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-          <input type="email" required>
-          <label for="#">Email</label>
-        </div>
-        <div class="contenedor-input">
-          <span class="icono"><i class="fa-solid fa-lock"></i></span>
-          <input type="password" required>
-          <label for="#">Contraseña</label>
-        </div>
-        <div class="recordar">
-          <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
-        </div>
-        <button type="submit" class="btn">Registrarme</button>
-        <div class="registrar">
-          <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal deseados -->
-  <div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="corazonModalLabel">Lista de deseos</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Necesita tener una cuenta para agregar libros a la lista...
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Inicio link -->
-
-    <nav class="navegacion">
-      <ul class="menu">
-        <li><a href="#">Libros</a>
-          <ul class="submenu">
-            <li><a href="#libros">Libros</a></li>
-            <li><a href="#libros-importados">Libros Importados</a></li>
-            <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
-            <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
-            <li><a href="#textos-escolares">Textos Escolares</a></li>
-            <li><a href="destacado.html">Destacado</a></li>
-            <li><a href="#promociones">Promociones</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Nosotros</a>
-          <ul class="submenu">
-            <li><a href="#">¿Quienes Somos?</a></li>
-            <li><a href="index2.html">Servicio al Cliente</a></li>
-            <li><a
-                href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Nuestras
-                Tiendas</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Servicios</a>
-          <ul class="submenu">
-            <li><a href="#">servicio1</a></li>
-            <li><a href="#">servicio2</a></li>
-            <li><a href="#">servicio3</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Contacto</a>
-          <ul class="submenu">
-            <li><a href="#">Correo : ventaonline@libreriasfmn.cl</a></li>
-            <li><a href="#">Contacto Central: +569 12345678</a></li>
-
-          </ul>
-      </ul>
-    </nav>
-
-
-    <!-- Fin link -->
-
-    <!-- slide 2 -->
-
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/banner1.png" class="d-block w-100" alt="Cargando...1" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/banner2.png" class="d-block w-100" alt="Cargando 2" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/banner3.jpg" class="d-block w-100" alt="Cargando 3" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/banner4.png" class="d-block w-100" alt="Cargando 4" />
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-    <!-- fin slide 2 -->
-    <br />
-
-  </header>
-
-  <main>
-    <!-- titulo preventa -->
-
-    <h2>Pre venta</h2>
-
-    <!-- fin titulo -->
-
-    <!-- carrusel preventa -->
-
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/preventa/percyjacksonyelcalizdelosdioses.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/laotracaradelaperfeccion.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/unalmadecenizaysangre.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/unmundooscuro.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/jaquematealamor.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/avecessoyunmardelagrimas.webp" class="d-block w-100" alt="...">
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/asesinatoparaprimcipiantes.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/loquelanievesusurraalcaer.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/elfarodelosamoresperdidos.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/hotelmagnifique.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/hermanoshawthorne.webp' %}"
+                  oky
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/preventa/uncorazonobstinado.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/preventa/asesinatoparaprincipiantes.webp" class="d-block w-100" alt="...">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleRide"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleRide"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br />
+      <!-- fin  -->
+
+      <!-- titulo juvenil -->
+      <br />
+      <h2>Juvenil</h2>
+
+      <!-- fin titulo -->
+
+      <!-- carrusel juvenil -->
+
+      <div
+        id="carouselExamplejuvenil"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/elpoderdequererte.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/elartedesernosotros.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/eldiariodenikki.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/melisabuscasemilla.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/tuporpuracasualidad.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/mafalda.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="col">
-              <img src="destacado/preventa/loquelanievesusurraalcaer.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/elfarodelosamoresdormidos.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/hotelmagnifique.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/hermanoshawthorne.webp" oky class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/preventa/uncorazonobstinado.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/cuentosdebuenasnochesparaniñasrebeldes.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/destrozaestediario.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/isidoramoonvaalballet.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/jackylashabichuelasmagicas.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/ridicula.webp' %}"
+                  oky
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="{% static 'images/dsdo/juvenil/unafiestadelreves.webp' %}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
           </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExamplejuvenil"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExamplejuvenil"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br>
-    <!-- fin  -->
+      <br />
+      <!-- fin  -->
 
-    <!-- titulo juvenil -->
-    <br>
-    <h2>Juvenil</h2>
+      <!-- titulo novedades -->
+      <br />
+      <h2>Novedades</h2>
 
-    <!-- fin titulo -->
+      <!-- fin titulo -->
 
-    <!-- carrusel juvenil -->
+      <!-- carrusel  novedades-->
 
-    <div id="carouselExamplejuvenil" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/juvenil/elpoderdequererte.webp" class="d-block w-100" alt="...">
+      <div
+        id="carouselExamplenovedades"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/novedades/albordedelacaida.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/avuelodepajaro.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/bienvenidoalanhk.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/cocinaconharrypotter.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/cuestiondegustos.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/desdemiinterior.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="col">
-              <img src="destacado/juvenil/elartedesernosotros.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/eldiariodenikki.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/melisabuscasemilla.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/tuporpuracasualidad.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/mafalda.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/novedades/diassalvajes.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/hoyestanochemañana.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/malaonda.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/memoriaselaguilayeljaguar.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/starwarsdarthvader.webp"
+                  oky
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/novedades/todosloshombresdelrey.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/juvenil/cuentosdebuenasnochesparaniñasrebeldes.webp" class="d-block w-100" alt="...">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExamplenovedades"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExamplenovedades"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br />
+      <!-- fin  -->
+
+      <!-- titulo comic -->
+      <br />
+      <h2>Comic</h2>
+
+      <!-- fin titulo -->
+
+      <!-- carrusel  comic-->
+
+      <div
+        id="carouselExamplecomic"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/comic/aquaman.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/archie.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/auladejusticia.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/deadpool.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/deathnote.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/he-manylosmastersdeluniverso.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="col">
-              <img src="destacado/juvenil/destrozaestediario.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/isidoramoonvaalballet.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/jackylashabichuelasmagicas.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/ridicula.webp" oky class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/juvenil/unafiestadelreves.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/comic/losnuevosvengadores.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/shazam.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/starwars.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/thewalkingdead.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/thor.webp"
+                  oky
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/tokyoghoul.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
           </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExamplecomic"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExamplecomic"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplejuvenil" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplejuvenil" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br>
-    <!-- fin  -->
+      <br />
+      <!-- fin  -->
 
-    <!-- titulo novedades -->
-    <br>
-    <h2>Novedades</h2>
+      <!-- titulo manga -->
+      <br />
+      <h2>Manga</h2>
 
-    <!-- fin titulo -->
+      <!-- fin titulo -->
 
-    <!-- carrusel  novedades-->
+      <!-- carrusel  manga-->
 
-    <div id="carouselExamplenovedades" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/novedades/albordedelacaida.webp" class="d-block w-100" alt="...">
+      <div
+        id="carouselExamplemanga"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/comic/aquaman.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/archie.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/auladejusticia.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/deadpool.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/deathnote.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/he-manylosmastersdeluniverso.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="col">
-              <img src="destacado/novedades/avuelodepajaro.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/bienvenidoalanhk.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/cocinaconharrypotter.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/cuestiondegustos.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/desdemiinterior.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img
+                  src="destacado/comic/losnuevosvengadores.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/shazam.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/starwars.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/thewalkingdead.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/thor.webp"
+                  oky
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="destacado/comic/tokyoghoul.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/novedades/diassalvajes.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/hoyestanochemañana.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/malaonda.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/memoriaselaguilayeljaguar.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/starwarsdarthvader.webp" oky class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/novedades/todosloshombresdelrey.webp" class="d-block w-100" alt="...">
-            </div>
-          </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExamplemanga"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExamplemanga"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <!-- fin  -->
+      <!-- botones 1 -->
+
+      <div class="container">
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='autorMes.html'" class="btn">
+            <img src="img/autormes.png" alt="Cargando..." />
+          </button>
+        </div>
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='harryPotter.html'" class="btn">
+            <img src="img/harryPotter.png" alt="Cargando..." />
+          </button>
+        </div>
+        <div class="boton-contenedor">
+          <button
+            onclick="window.location.href='promocionesEscolares.html'"
+            class="btn"
+          >
+            <img src="img/promoescolares.png" alt="Cargando..." />
+          </button>
+        </div>
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='descuentos.html'" class="btn">
+            <img src="img/descuentos.png" alt="Cargando..." />
+          </button>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplenovedades"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplenovedades"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br>
-    <!-- fin  -->
 
-    <!-- titulo comic -->
-    <br>
-    <h2>Comic</h2>
+      <!-- fin botones 1-->
+      <br />
+      <!-- inicio titulo -->
 
-    <!-- fin titulo -->
+      <h4>Tematicas Destacadas</h4>
 
-    <!-- carrusel  comic-->
+      <!-- fin titulo -->
 
-    <div id="carouselExamplecomic" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/comic/aquaman.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/archie.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/auladejusticia.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/deadpool.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/deathnote.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/he-manylosmastersdeluniverso.webp" class="d-block w-100" alt="...">
-            </div>
-          </div>
+      <!-- inicio botones 2 -->
+      <div class="container">
+        <div class="boton-contenedor">
+          <button
+            onclick="window.location.href='tematicasaga.html'"
+            class="btn"
+          >
+            <img src="tematicas/sagas.png" alt="Cargando..." />
+          </button>
         </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/comic/losnuevosvengadores.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/shazam.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/starwars.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/thewalkingdead.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/thor.webp" oky class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/tokyoghoul.webp" class="d-block w-100" alt="...">
-            </div>
-          </div>
+
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='comicmanga.html'" class="btn">
+            <img src="tematicas/comicMangas.png" alt="Cargando..." />
+          </button>
+        </div>
+
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='literatura.html'" class="btn">
+            <img src="tematicas/literaturaChilena.png" alt="Cargando..." />
+          </button>
+        </div>
+
+        <div class="boton-contenedor">
+          <button
+            onclick="window.location.href='novelaholocausto.html'"
+            class="btn"
+          >
+            <img src="tematicas/novelaHolocausto.png" alt="Cargando..." />
+          </button>
+        </div>
+
+        <div class="boton-contenedor">
+          <button
+            onclick="window.location.href='cambioclimatico.html'"
+            class="btn"
+          >
+            <img src="tematicas/cambioClimatico.png" alt="Cargando..." />
+          </button>
+        </div>
+
+        <div class="boton-contenedor">
+          <button
+            onclick="window.location.href='promocionesEscolares.html'"
+            class="btn"
+          >
+            <img src="tematicas/promocionesEscolares.png" alt="Cargando..." />
+          </button>
+        </div>
+
+        <div class="boton-contenedor">
+          <button onclick="window.location.href='destacado.html'" class="btn">
+            <img src="tematicas/destacado.png" alt="Cargando..." />
+          </button>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplecomic" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplecomic" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br>
-    <!-- fin  -->
 
-    <!-- titulo manga -->
-    <br>
-    <h2>Manga</h2>
+      <!-- fin botones 2 -->
+    </main>
 
-    <!-- fin titulo -->
-
-    <!-- carrusel  manga-->
-
-    <div id="carouselExamplemanga" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/comic/aquaman.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/archie.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/auladejusticia.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/deadpool.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/deathnote.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/he-manylosmastersdeluniverso.webp" class="d-block w-100" alt="...">
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col">
-              <img src="destacado/comic/losnuevosvengadores.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/shazam.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/starwars.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/thewalkingdead.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/thor.webp" oky class="d-block w-100" alt="...">
-            </div>
-            <div class="col">
-              <img src="destacado/comic/tokyoghoul.webp" class="d-block w-100" alt="...">
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplemanga" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplemanga" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br>
-    <hr><br>
-    <!-- fin  -->
-    <!-- botones 1 -->
-
-    <div class="container">
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='autorMes.html'" class="btn">
-          <img src="img/autormes.png" alt="Cargando..." />
-        </button>
-      </div>
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='harryPotter.html'" class="btn">
-          <img src="img/harryPotter.png" alt="Cargando..." />
-        </button>
-      </div>
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='promocionesEscolares.html'" class="btn">
-          <img src="img/promoescolares.png" alt="Cargando..." />
-        </button>
-      </div>
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='descuentos.html'" class="btn">
-          <img src="img/descuentos.png" alt="Cargando..." />
-        </button>
-      </div>
-    </div>
-
-
-    <!-- fin botones 1-->
-    <br>
-    <!-- inicio titulo -->
-
-    <h4>Tematicas Destacadas</h4>
-
-    <!-- fin titulo -->
-
-    <!-- inicio botones 2 -->
-    <div class="container">
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='tematicasaga.html'" class="btn">
-          <img src="tematicas/sagas.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='comicmanga.html'" class="btn">
-          <img src="tematicas/comicMangas.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='literatura.html'" class="btn">
-          <img src="tematicas/literaturaChilena.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='novelaholocausto.html'" class="btn">
-          <img src="tematicas/novelaHolocausto.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='cambioclimatico.html'" class="btn">
-          <img src="tematicas/cambioClimatico.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='promocionesEscolares.html'" class="btn">
-          <img src="tematicas/promocionesEscolares.png" alt="Cargando..." />
-        </button>
-      </div>
-
-      <div class="boton-contenedor">
-        <button onclick="window.location.href='destacado.html'" class="btn">
-          <img src="tematicas/destacado.png" alt="Cargando..." />
-        </button>
-      </div>
-    </div>
-
-    <!-- fin botones 2 -->
-
-    </div>
-    </div>
-
-  </main>
-
-  {% include 'base/footer.html'%}
-  ----------------------------------------
-  <!-- jc -->
-  <script src="app.js"></script>
-  <!-- fin -->
-</body>
-
+    {% include 'base/footer.html'%} ----------------------------------------
+    <!-- jc -->
+    <script src="app.js"></script>
+    <!-- fin -->
+  </body>
 </html>
