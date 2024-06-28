@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
   {% include 'base/header.html' %}
 
@@ -28,8 +28,8 @@
     <!-- fin -->
 
     <div class="autor-mes">
-      <img src="imgAutorMes/autorMes.png" alt="Cargando..." width="340px" />
-
+      <img src="{% static 'images/imgAutorMes/autorMes.png' %}" alt="Cargando..." width="340px" />
+      
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
         veniam cumque maxime deleniti repellendus doloribus molestiae
