@@ -777,25 +777,25 @@
 
       <div class="container">
         <div class="boton-contenedor">
-          <button onclick="window.location.href='{% static 'autorMes.html'%}'" class="btn">
+          <button onclick="window.location.href='{% url 'autorMes'%}'" class="btn">
             <img src="{% static 'images/imgn.img/autormes.png' %}" alt="Cargando..." />
           </button>
         </div>
         <div class="boton-contenedor">
-          <button onclick="window.location.href='harryPotter.html'" class="btn">
+          <button onclick="window.location.href='{% url 'harryPotter' %}'" class="btn">
             <img src="{% static 'images/imgn.img/harryPotter.png' %}" alt="Cargando..." />
           </button>
         </div>
         <div class="boton-contenedor">
           <button
-            onclick="window.location.href='promocionesEscolares.html'"
+            onclick="window.location.href='{% url 'promocionesEscolares' %}'"
             class="btn"
           >
             <img src="{% static 'images/imgn.img/promoescolares.png' %}" alt="Cargando..." />
           </button>
         </div>
         <div class="boton-contenedor">
-          <button onclick="window.location.href='descuentos.html'" class="btn">
+          <button onclick="window.location.href='{% url 'descuentos' %}'" class="btn">
             <img src="{% static 'images/imgn.img/descuentos.png' %}" alt="Cargando..." />
           </button>
         </div>
