@@ -20,8 +20,12 @@ urlpatterns = [
    path("",views.imgn, name="imgn"),
    path("",views.dsdo, name="dsdo"),
    path("",views.imgAutorMes, name="imgAutorMes"),
-   path("",views.app, name="app")
-
+   path("",views.app, name="app"),
+   path("",views.registro, name="registro.html"),
+   path("",views.login, name="login.html"),
+   path("",views.perfil, name="perfil.html")
+   
+   
 
 
 ]

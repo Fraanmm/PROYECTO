@@ -115,4 +115,22 @@ def app(request):
     }
     return render(request,"js/app.js",context)
 
+def login(request):
+    context ={
+
+    }
+    return render(request,"pages/login.html",context)
+
+def registro(request):
+    context ={
+
+    }
+    return render(request,"pages/registro.html",context)
+
+def perfil(request):
+    context ={
+
+    }
+    return render(request,"pages/perfil.html",context)
+
 
