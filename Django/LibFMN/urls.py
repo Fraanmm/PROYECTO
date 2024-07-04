@@ -21,9 +21,11 @@ urlpatterns = [
    path("",views.dsdo, name="dsdo"),
    path("",views.imgAutorMes, name="imgAutorMes"),
    path("",views.app, name="app"),
-   path("",views.registro, name="registro.html"),
-   path("",views.login, name="login.html"),
-   path("",views.perfil, name="perfil.html")
+   path("",views.administrador, name="administrador.html"),
+   path("",views.inicioadmin, name="inicioadmin.html"),
+   path("",views.iniciocliente, name="iniciocliente.html")
+   
+   
    
    
 

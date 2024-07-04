@@ -115,22 +115,22 @@ def app(request):
     }
     return render(request,"js/app.js",context)
 
-def login(request):
-    context ={
-
-    }
-    return render(request,"pages/login.html",context)
-
-def registro(request):
+def inicioadmin(request):
     context ={
 
     }
     return render(request,"pages/registro.html",context)
 
-def perfil(request):
+def administrador(request):
     context ={
 
     }
-    return render(request,"pages/perfil.html",context)
+    return render(request,"pages/administrador.html",context)
+
+def iniciocliente(request):
+    context ={
+
+    }
+    return render(request,"pages/iniciocliente.html",context)
 
 
