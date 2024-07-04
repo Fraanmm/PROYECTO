@@ -1,4 +1,10 @@
 from django.shortcuts import render
+"""  """
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from .forms import LoginForm, RegistroForm
 
 # Create your views here.
 def index(request):
@@ -115,11 +121,53 @@ def app(request):
     }
     return render(request,"js/app.js",context)
 
-def inicioadmin(request):
-    context ={
 
+
+def inicioadmin(request):
+    if request.method == 'POST':
+        # Procesar formulario de inicio de sesión
+        if 'login_form' in request.POST:
+            login_form = LoginForm(request.POST)
+            if login_form.is_valid():
+                username = login_form.cleaned_data['username']
+                password = login_form.cleaned_data['password']
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('administrador.html')
+                else:
+                    messages.error(request, 'Usuario o contraseña incorrectos.')
+        else:
+            login_form = LoginForm(request.POST)
+        
+        # Procesar formulario de registro
+        if 'registro_form' in request.POST:
+            registro_form = RegistroForm(request.POST)
+            if registro_form.is_valid():
+                username = registro_form.cleaned_data['username']
+                email = registro_form.cleaned_data['email']
+                password = registro_form.cleaned_data['password']
+                
+                if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
+                    messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
+                else:
+                    new_user = User.objects.create_user(username=username, email=email, password=password)
+                    new_user.save()
+                    messages.success(request, 'Usuario creado correctamente.')
+                    return redirect('inicioadmin')
+        else:
+            registro_form = RegistroForm(request.POST)
+
+    else:
+        login_form = LoginForm()
+        registro_form = RegistroForm()
+
+    context = {
+        'login_form': login_form,
+        'registro_form': registro_form,
     }
-    return render(request,"pages/registro.html",context)
+    return render(request, 'pages/inicioadmin.html', context)
+
 
 def administrador(request):
     context ={
@@ -132,5 +180,7 @@ def iniciocliente(request):
 
     }
     return render(request,"pages/iniciocliente.html",context)
+
+"""  """
 
 

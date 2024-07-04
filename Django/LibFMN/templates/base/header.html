@@ -1,93 +1,157 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <img src="{% static 'images/imgn.img/logo.png' %}" alt="Cargando..." width="120" />
-        <a class="navbar-brand me-auto">Libreria FMN</a>
+  <div class="container-fluid">
+    <img
+      src="{% static 'images/imgn.img/logo.png' %}"
+      alt="Cargando..."
+      width="120"
+    />
+    <a class="navbar-brand me-auto">Libreria FMN</a>
 
-        <div id="ctn-bars-search">
-            <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
-        </div>
-
-        <ul id="box-search">
-            <li><a href="{% url 'destacado' %}"><i class="fas fa-search"></i> Destacado</a></li>
-            <li><a href="{% url 'comicmanga' %}"><i class="fas fa-search"></i>Comics</a></li>
-            <li><a href="{% url 'comicmanga' %}"><i class="fas fa-search"></i>Mangas</a></li>
-            <li><a href="{% url 'cambioclimatico' %}"><i class="fas fa-search"></i>Cambio Climático</a></li>
-            <li><a href="{% url 'novelaholocausto' %}"><i class="fas fa-search"></i>Novelas del Holocausto</a></li>
-            <li><a href="{% url 'descuentos' %}"><i class="fas fa-search"></i>Descuentos</a></li>
-            <li><a href="{% url 'harryPotter' %}"><i class="fas fa-search"></i>Harry Potter</a></li>
-            <li><a href="{% url 'promocionesEscolares' %}"><i class="fas fa-search"></i>Promociones Escolares</a></li>
-        </ul>
-
-        <div id="cover-ctn-search"></div>
-        <div class="d-flex align-items-center">
-            <!-- Contenedor de los íconos -->
-            <div class="container-icon d-flex align-items-center me-3">
-                <!-- Icono del carrito -->
-                <div class="container-cart-icon position-relative me-3">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        <span id="contador-productos">0</span>
-                    </div>
-                </div>
-                <!-- Icono del corazón -->
-                <i class="fa-solid fa-heart-circle-check fs-4 me-3" data-bs-toggle="modal"
-                    data-bs-target="#corazonModal"></i>
-            </div>
-            <!-- Botón de inicio de sesión -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Iniciar Sesión
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="{% url 'inicioAdmi' %}">Trabajador</a></li>
-                    <li><a class="dropdown-item" href="{% url 'inicioCliente' %}">Usuario</a></li>
-                </ul>
-            </div>
-        </div>
+    <div id="ctn-bars-search">
+      <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?" />
     </div>
-</nav>
 
+    <ul id="box-search">
+      <li>
+        <a href="{% url 'destacado' %}"
+          ><i class="fas fa-search"></i> Destacado</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'comicmanga' %}"><i class="fas fa-search"></i>Comics</a>
+      </li>
+      <li>
+        <a href="{% url 'comicmanga' %}"><i class="fas fa-search"></i>Mangas</a>
+      </li>
+      <li>
+        <a href="{% url 'cambioclimatico' %}"
+          ><i class="fas fa-search"></i>Cambio Climático</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'novelaholocausto' %}"
+          ><i class="fas fa-search"></i>Novelas del Holocausto</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'descuentos' %}"
+          ><i class="fas fa-search"></i>Descuentos</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'harryPotter' %}"
+          ><i class="fas fa-search"></i>Harry Potter</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'promocionesEscolares' %}"
+          ><i class="fas fa-search"></i>Promociones Escolares</a
+        >
+      </li>
+    </ul>
+
+    <div id="cover-ctn-search"></div>
+    <div class="d-flex align-items-center">
+      <!-- Contenedor de los íconos -->
+      <div class="container-icon d-flex align-items-center me-3">
+        <!-- Icono del carrito -->
+        <div class="container-cart-icon position-relative me-3">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div
+            class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            <span id="contador-productos">0</span>
+          </div>
+        </div>
+        <!-- Icono del corazón -->
+        <i
+          class="fa-solid fa-heart-circle-check fs-4 me-3"
+          data-bs-toggle="modal"
+          data-bs-target="#corazonModal"
+        ></i>
+      </div>
+      <!-- Botón de inicio de sesión -->
+      <div class="btn-group">
+        <button class="btn btn-lg btn-secondary text-dark" type="button">
+          Iniciar Sesión
+        </button>
+        <button
+          type="button"
+          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="{% static 'inicioAdmi' %}">
+              Trabajador
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% static 'inicioCliente' %}">
+              Usuario
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <!-- Navegación -->
 <nav class="navegacion">
-    <ul class="menu">
-        <li><a href="#">Libros</a>
-            <ul class="submenu">
-                <li><a href="#libros">Libros</a></li>
-                <li><a href="#libros-importados">Libros Importados</a></li>
-                <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
-                <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
-                <li><a href="#textos-escolares">Textos Escolares</a></li>
-                <li><a href="{% url 'destacado' %}">Destacado</a></li>
-                <li><a href="#promociones">Promociones</a></li>
-            </ul>
+  <ul class="menu">
+    <li>
+      <a href="#">Libros</a>
+      <ul class="submenu">
+        <li><a href="#libros">Libros</a></li>
+        <li><a href="#libros-importados">Libros Importados</a></li>
+        <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
+        <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
+        <li><a href="#textos-escolares">Textos Escolares</a></li>
+        <li><a href="{% url 'destacado' %}">Destacado</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nosotros</a>
+      <ul class="submenu">
+        <li><a href="#">¿Quienes Somos?</a></li>
+        <li><a href="{% static 'index2.html' %}">Servicio al Cliente</a></li>
+        <li>
+          <a
+            href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu"
+            >Nuestras Tiendas</a
+          >
         </li>
-        <li><a href="#">Nosotros</a>
-            <ul class="submenu">
-                <li><a href="#">¿Quienes Somos?</a></li>
-                <li><a href="{% static 'index2.html' %}">Servicio al Cliente</a></li>
-                <li><a
-                        href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu">Nuestras
-                        Tiendas</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Editoriales</a>
-            <ul class="submenu">
-                <li><a href="https://www.planetadelibros.cl/">Planeta de Libros</a></li>
-                <li><a href="https://www.santillana.cl/">Santillana</a></li>
-                <li><a href="https://www.zigzag.cl/home?gad_source=1
+      </ul>
+    </li>
+    <li>
+      <a href="#">Editoriales</a>
+      <ul class="submenu">
+        <li><a href="https://www.planetadelibros.cl/">Planeta de Libros</a></li>
+        <li><a href="https://www.santillana.cl/">Santillana</a></li>
+        <li>
+          <a
+            href="https://www.zigzag.cl/home?gad_source=1
                          &gclid=CjwKCAjwvvmzBhA2EiwAtHVrb2ayeLeP
                          tIeoiUPov56LZ412LFDbmY9aiEdKHVU7bqfZdf7
-                         _t1k8qRoCxEsQAvD_BwE">Zig Zag</a></li>
-            </ul>
+                         _t1k8qRoCxEsQAvD_BwE"
+            >Zig Zag</a
+          >
         </li>
-        <li><a href="#">Contacto</a>
-            <ul class="submenu">
-                <li><a href="#">Correo : ventaonline@libreriasfmn.cl</a></li>
-                <li><a href="#">Contacto Central: +569 12345678</a></li>
-            </ul>
-        </li>
-    </ul>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Contacto</a>
+      <ul class="submenu">
+        <li><a href="#">Correo : ventaonline@libreriasfmn.cl</a></li>
+        <li><a href="#">Contacto Central: +569 12345678</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
