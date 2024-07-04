@@ -37,93 +37,18 @@
             </div>
             <!-- Botón de inicio de sesión -->
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     Iniciar Sesión
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Trabajador</a></li>
-                    <li><a class="dropdown-item" href="#">Usuario</a></li>
-                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                    <li><a class="dropdown-item" href="{% url 'inicioadmi' %}">Trabajador</a></li>
+                    <li><a class="dropdown-item" href="{% url 'iniciocliente' %}">Usuario</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Contenedor del formulario de inicio de sesión y registro -->
-<div class="fondo" id="loginForm">
-    <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
-
-    <!-- Formulario de inicio de sesión -->
-    <div class="contenedor-form Login" id="loginFormContent">
-        <h2>Iniciar Sesión</h2>
-        <form action="#">
-            <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-                <input type="email" required>
-                <label for="#">Email</label>
-            </div>
-            <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" required>
-                <label for="#">Contraseña</label>
-            </div>
-            <div class="recordar">
-                <label for="#"><input type="checkbox">Recordar Sesión</label>
-                <a href="#">¿Olvidé la Contraseña?</a>
-            </div>
-            <button type="submit" class="btn">Iniciar Sesión</button>
-            <div class="registrar">
-                <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
-            </div>
-        </form>
-    </div>
-
-    <!-- Formulario de registro -->
-    <div class="contenedor-form registrar" id="registroFormContent">
-        <h2>Registrarse</h2>
-        <form action="#">
-            <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-user"></i></span>
-                <input type="text" required>
-                <label for="#">Nombre de Usuario</label>
-            </div>
-            <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-                <input type="email" required>
-                <label for="#">Email</label>
-            </div>
-            <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" required>
-                <label for="#">Contraseña</label>
-            </div>
-            <div class="recordar">
-                <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
-            </div>
-            <button type="submit" class="btn">Registrarme</button>
-            <div class="registrar">
-                <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Modal deseos -->
-<div class="modal fade" id="corazonModal" tabindex="-1" aria-labelledby="corazonModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="corazonModalLabel">Lista de deseos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Necesita tener una cuenta para agregar libros a la lista...
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Navegación -->
 <nav class="navegacion">

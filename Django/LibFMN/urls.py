@@ -22,8 +22,8 @@ urlpatterns = [
    path("",views.imgAutorMes, name="imgAutorMes"),
    path("",views.app, name="app"),
    path("",views.administrador, name="administrador.html"),
-   path("",views.inicioadmin, name="inicioadmin.html"),
-   path("",views.iniciocliente, name="iniciocliente.html")
+   path("inicioadmi",views.inicioadmin, name="inicioadmin.html"),
+   path("iniciocliente",views.iniciocliente, name="iniciocliente.html")
    
    
    
