@@ -53,7 +53,6 @@ def tematicasaga(request):
     context = {}
     return render(request, "pages/tematicasaga.html", context)
 
-# Views para archivos estáticos
 def diseño(request):
     context = {}
     return render(request, "static/diseño.css", context)
@@ -142,36 +141,39 @@ def administrador(request):
     return render(request, 'pages/administrador.html', {'form': form})
 
 def iniciocliente(request):
-    if request.method == 'POST':
-        login_form = LoginForm(request.POST)
-        registro_form = RegistroUsuarioForm(request.POST)
-        
-        if registro_form.is_valid():
-            username = registro_form.cleaned_data['username']
-            email = registro_form.cleaned_data['email']
-            password = registro_form.cleaned_data['password']
-            genero = registro_form.cleaned_data['genero']
-            nombre = registro_form.cleaned_data['nombre']
-            apellido = registro_form.cleaned_data['apellido']
-            
-            # Validar el dominio del correo electrónico
-            if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
-                messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
-            else:
-                # Crear una instancia de CustomUser y guardarla
-                new_user = CustomUser.objects.create_user(username=username, email=email, password=password, genero=genero, nombre=nombre, apellido=apellido)
-                new_user.save()
-                
-                messages.success(request, 'Usuario creado correctamente.')
-                return redirect('iniciocliente')  # Redirigir a la misma página de inicio de cliente después del registro exitoso
-        
-        # Si hay errores en el formulario de registro, mostrarlos
-        else:
-            messages.error(request, 'Por favor corrige los errores en el formulario.')
+    login_form = LoginForm()
+    registro_form = RegistroUsuarioForm()
 
-    else:
-        login_form = LoginForm()
-        registro_form = RegistroUsuarioForm()
+    if request.method == 'POST':
+        if 'login_form' in request.POST:
+            login_form = LoginForm(request.POST)
+            if login_form.is_valid():
+                username = login_form.cleaned_data['username']
+                password = login_form.cleaned_data['password']
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('index')
+                else:
+                    messages.error(request, 'Usuario o contraseña incorrectos.')
+        elif 'registro_form' in request.POST:
+            registro_form = RegistroUsuarioForm(request.POST)
+            if registro_form.is_valid():
+                username = registro_form.cleaned_data['username']
+                email = registro_form.cleaned_data['email']
+                password = registro_form.cleaned_data['password']
+                genero = registro_form.cleaned_data['genero']
+                nombre = registro_form.cleaned_data['nombre']
+                apellido = registro_form.cleaned_data['apellido']
+                
+                if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
+                    messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
+                else:
+                    new_user = CustomUser.objects.create_user(username=username, email=email, password=password, genero=genero, nombre=nombre, apellido=apellido)
+                    new_user.save()
+                    
+                    messages.success(request, 'Usuario creado correctamente.')
+                    return redirect('index')  
 
     context = {
         'login_form': login_form,

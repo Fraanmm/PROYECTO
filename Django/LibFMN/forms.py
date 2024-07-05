@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from .models import CustomUser
-from .forms import RegistroUsuarioForm
-
 
 class RegistroUsuarioForm(UserCreationForm):
     password = forms.CharField(label=_('Contraseña'), widget=forms.PasswordInput)

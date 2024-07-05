@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/diseño.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
-    <style>
-        /* Estilo para ocultar el formulario de registro inicialmente */
-        #registro-form {
-            display: none;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="container">
@@ -136,10 +131,15 @@
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
-    
-        document.getElementById('mostrar-registro').addEventListener('click', function() {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('registro-form').style.display = 'block';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ocultar el formulario de registro al cargar la página
+            document.getElementById('registro-form').style.display = 'none';
+
+            // Función para mostrar el formulario de registro y ocultar el de inicio de sesión
+            document.getElementById('btn-registrarse').addEventListener('click', function() {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('registro-form').style.display = 'block';
+            });
         });
     </script>
 </body>
