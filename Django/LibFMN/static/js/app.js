@@ -393,12 +393,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addToCart({ title, price });
   }
 
-  function ejemploAgregarAlCarrito() {
-    const title = "Nombre del Producto";
-    const price = "$25";
-    addProductToCart(title, price);
-  }
-
   function updateCartIconCounter() {
     document.getElementById("contador-productos").textContent = cart.length;
   }
