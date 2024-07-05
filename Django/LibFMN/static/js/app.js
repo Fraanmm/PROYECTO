@@ -247,6 +247,80 @@ document.getElementById('inputSearch').addEventListener('input', function() {
 });
 });
 
+// static/js/administrador.js
+
+$(document).ready(function() {
+  // Manejar el envío del formulario de creación de usuario
+  $('#crearUsuarioForm').on('submit', function(event) {
+      event.preventDefault();  // Evitar el envío estándar del formulario
+      var formData = $(this).serialize();  // Obtener los datos del formulario
+      $.ajax({
+          type: 'POST',
+          url: '/crear_usuario/',  // URL de la vista para crear usuario
+          data: formData,
+          success: function(response) {
+              $('#tablaUsuarios tbody').append(response.html_usuario);  // Añadir el usuario creado a la tabla
+              $('#crearUsuarioForm')[0].reset();  // Limpiar el formulario
+              // Mensaje de éxito o error si es necesario
+              $('#messages').html(response.html_messages);
+          },
+          error: function(error) {
+              // Manejar errores si es necesario
+              console.log(error);
+          }
+      });
+  });
+
+  // Manejar la acción de editar usuario
+  $(document).on('click', '.editar-usuario', function() {
+      var usuarioId = $(this).data('id');
+      // Implementar lógica para editar usuario (modal, formulario, etc.)
+  });
+
+  // Manejar la acción de eliminar usuario
+  $(document).on('click', '.eliminar-usuario', function() {
+      var usuarioId = $(this).data('id');
+      $.ajax({
+          type: 'POST',
+          url: '/eliminar_usuario/',  // URL de la vista para eliminar usuario
+          data: {
+              'usuario_id': usuarioId,
+              'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+          },
+          success: function(response) {
+              $('#usuario_' + usuarioId).remove();  // Eliminar el usuario de la tabla
+              // Mensaje de éxito o error si es necesario
+              $('#messages').html(response.html_messages);
+          },
+          error: function(error) {
+              // Manejar errores si es necesario
+              console.log(error);
+          }
+      });
+  });
+});
+
+$(document).ready(function() {
+    $('#crearUsuarioForm').on('submit', function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: '{% url "crear_usuario" %}',  // Esta línea genera la URL adecuada
+            data: formData,
+            success: function(response) {
+                $('#tablaUsuarios tbody').append(response.html_usuario);
+                $('#crearUsuarioForm')[0].reset();
+                $('.container').prepend(response.html_messages);
+                $('.alert').alert();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
 
 
 

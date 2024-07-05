@@ -1,22 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, password=None, **extra_fields):
+    def create_user(self, email, nombre, apellido, rut, genero, tipo_trabajador, password=None, **extra_fields):
         if not email:
-            raise ValueError('El correo electrónico es obligatorio')
+            raise ValueError('El email debe estar configurado.')
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = self.model(email=email, nombre=nombre, apellido=apellido, rut=rut, genero=genero, tipo_trabajador=tipo_trabajador, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password=None, **extra_fields):
+    def create_superuser(self, email, nombre, apellido, rut, genero, tipo_trabajador, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
-        return self.create_user(email, password, **extra_fields)
-
+        return self.create_user(email, nombre, apellido, rut, genero, tipo_trabajador, password, **extra_fields)
 
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True)

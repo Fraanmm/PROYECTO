@@ -1,128 +1,87 @@
-from django.shortcuts import render
-"""  """
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, RegistroForm
+from django.contrib import messages
+from .forms import CrearUsuarioForm
 
-# Create your views here.
+# Views para renderizar plantillas HTML
 def index(request):
-    context ={
-
-    }
-    return render(request,"pages/index.html",context)
+    context = {}
+    return render(request, "pages/index.html", context)
 
 def autorMes(request):
-    context ={
-
-    }
-    return render(request,"pages/autorMes.html",context)
+    context = {}
+    return render(request, "pages/autorMes.html", context)
 
 def cambioclimatico(request):
-    context ={
-
-    }
-    return render(request,"pages/cambioclimatico.html",context)
+    context = {}
+    return render(request, "pages/cambioclimatico.html", context)
 
 def comicmanga(request):
-    context ={
-
-    }
-    return render(request,"pages/comicmanga.html",context)
+    context = {}
+    return render(request, "pages/comicmanga.html", context)
 
 def descuentos(request):
-    context ={
-
-    }
-    return render(request,"pages/descuentos.html",context)
+    context = {}
+    return render(request, "pages/descuentos.html", context)
 
 def destacado(request):
-    context ={
-
-    }
-    return render(request,"pages/destacado.html",context)
+    context = {}
+    return render(request, "pages/destacado.html", context)
 
 def harryPotter(request):
-    context ={
-
-    }
-    return render(request,"pages/harryPotter.html",context)
+    context = {}
+    return render(request, "pages/harryPotter.html", context)
 
 def index2(request):
-    context ={
-
-    }
-    return render(request,"pages/index2.html",context)
+    context = {}
+    return render(request, "pages/index2.html", context)
 
 def literatura(request):
-    context ={
-
-    }
-    return render(request,"pages/literatura.html",context)
+    context = {}
+    return render(request, "pages/literatura.html", context)
 
 def novelaholocausto(request):
-    context ={
-
-    }
-    return render(request,"pages/novelaholocausto.html",context)
+    context = {}
+    return render(request, "pages/novelaholocausto.html", context)
 
 def promocionesEscolares(request):
-    context ={
-
-    }
-    return render(request,"pages/promocionesEscolares.html",context)
+    context = {}
+    return render(request, "pages/promocionesEscolares.html", context)
 
 def tematicasaga(request):
-    context ={
+    context = {}
+    return render(request, "pages/tematicasaga.html", context)
 
-    }
-    return render(request,"pages/tematicasaga.html",context)
-
+# Views para archivos estáticos
 def diseño(request):
-    context ={
-
-    }
-    return render(request,"static/diseño.css",context)
+    context = {}
+    return render(request, "static/diseño.css", context)
 
 def envio(request):
-    context ={
-
-    }
-    return render(request,"imagenes/envio.img",context)
+    context = {}
+    return render(request, "imagenes/envio.img", context)
 
 def tematicas(request):
-    context ={
-
-    }
-    return render(request,"imagenes/tematicas.img",context)
+    context = {}
+    return render(request, "imagenes/tematicas.img", context)
 
 def imgn(request):
-    context ={
-
-    }
-    return render(request,"imagenes/imgn.img",context)
+    context = {}
+    return render(request, "imagenes/imgn.img", context)
 
 def dsdo(request):
-    context ={
-
-    }
-    return render(request,"imagenes/dsdo.img",context)
+    context = {}
+    return render(request, "imagenes/dsdo.img", context)
 
 def imgAutorMes(request):
-    context ={
-
-    }
-    return render(request,"imagenes/imgAutorMes.img",context)
+    context = {}
+    return render(request, "imagenes/imgAutorMes.img", context)
 
 def app(request):
-    context ={
+    context = {}
+    return render(request, "js/app.js", context)
 
-    }
-    return render(request,"js/app.js",context)
-
-
-
+# Vista para la página de inicio de administrador
 def inicioadmin(request):
     if request.method == 'POST':
         # Procesar formulario de inicio de sesión
@@ -134,7 +93,7 @@ def inicioadmin(request):
                 user = authenticate(username=username, password=password)
                 if user is not None:
                     login(request, user)
-                    return redirect('administrador.html')
+                    return redirect('administrador')
                 else:
                     messages.error(request, 'Usuario o contraseña incorrectos.')
         else:
@@ -168,19 +127,20 @@ def inicioadmin(request):
     }
     return render(request, 'pages/inicioadmin.html', context)
 
-
 def administrador(request):
-    context ={
+    form = CrearUsuarioForm()
 
-    }
-    return render(request,"pages/administrador.html",context)
+    if request.method == 'POST':
+        form = CrearUsuarioForm(request.POST)
+        if form.is_valid():
+            # Guardar el usuario si el formulario es válido
+            form.save()
+            messages.success(request, 'Usuario creado correctamente.')
+            return redirect('administrador')
 
+    return render(request, 'pages/administrador.html', {'form': form})
+
+# Vista para la página de inicio de cliente
 def iniciocliente(request):
-    context ={
-
-    }
-    return render(request,"pages/iniciocliente.html",context)
-
-"""  """
-
-
+    context = {}
+    return render(request, "pages/iniciocliente.html", context)

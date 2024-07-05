@@ -1,20 +1,21 @@
+# forms.py
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _  # Importa el atajo `_` para traducción
+from django.utils.translation import gettext_lazy as _
 
-class LoginForm(forms.Form):
-    username = forms.CharField(label=_('Nombre de usuario'))  # Usa el atajo _ para traducir la etiqueta
+class CrearUsuarioForm(forms.ModelForm):
     password = forms.CharField(label=_('Contraseña'), widget=forms.PasswordInput)
-
-
-class RegistroForm(forms.ModelForm):
-    password = forms.CharField(label=_('Contraseña'), widget=forms.PasswordInput)
-    confirm_password = forms.CharField(label=_('Confirmar contraseña'), widget=forms.PasswordInput)
+    genero_choices = [
+        ('Hombre', 'Hombre'),
+        ('Mujer', 'Mujer'),
+        ('Otro', 'Otro')
+    ]
+    genero = forms.ChoiceField(label=_('Género'), choices=genero_choices)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'genero', 'password']
 
     def clean_email(self):
         email = self.cleaned_data['email']
