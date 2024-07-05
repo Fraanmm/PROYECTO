@@ -51,7 +51,7 @@
 
         <hr>
 
-        <!-- Formulario de registro oculto inicialmente -->
+       
         <div id="registro-form">
             <h2>Registro de nuevo cliente</h2>
             
@@ -132,10 +132,10 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Ocultar el formulario de registro al cargar la página
+            
             document.getElementById('registro-form').style.display = 'none';
 
-            // Función para mostrar el formulario de registro y ocultar el de inicio de sesión
+            
             document.getElementById('btn-registrarse').addEventListener('click', function() {
                 document.getElementById('login-form').style.display = 'none';
                 document.getElementById('registro-form').style.display = 'block';

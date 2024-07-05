@@ -57,14 +57,45 @@
       <!-- Contenedor de los íconos -->
       <div class="container-icon d-flex align-items-center me-3">
         <!-- Icono del carrito -->
-        <div class="container-cart-icon position-relative me-3">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
           <i class="fa-solid fa-cart-shopping"></i>
-          <div
-            class="count-products position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          >
-            <span id="contador-productos">0</span>
+          <span id="contador-productos">0</span>
+        </button>
+        
+        <!-- Offcanvas para el carrito de compras -->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-        </div>
+          <div class="offcanvas-body">
+            <button class="btn btn-primary" type="button" id="openCartBtn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="contador-productos">0</span>
+            </button>
+            
+            <!-- Offcanvas para el carrito de compras -->
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="cartOffcanvasLabel">Carrito de Compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <!-- Contenido del carrito de compras -->
+                <div class="cart-container">
+                  <div class="cart-content">
+                    <div class="cart-items"></div>
+                    <div class="cart-total">
+                      <strong>Total a Pagar:</strong> <span class="total-amount">$0</span>
+                    </div>
+                    <button class="btn btn-success btn-lg btn-checkout">Ir a Pagar</button>
+                    <button class="btn btn-danger btn-sm btn-clear-cart">Eliminar Carrito</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        
         <!-- Icono del corazón -->
         <i
           class="fa-solid fa-heart-circle-check fs-4 me-3"
@@ -78,8 +109,8 @@
           Iniciar Sesión
         </button>
         <button
-          type="button"
           class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+          type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -87,12 +118,12 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a class="dropdown-item" href="{% url 'inicioadmi' %}">
+            <a class="dropdown-item" href="{% static 'admininicioadmin.html' %}">
               Trabajador
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="{% url 'inicioCliente' %}">
+            <a class="dropdown-item" href="{% static 'iniciocliente.html' %}">
               Usuario
             </a>
           </li>
@@ -155,3 +186,6 @@
     </li>
   </ul>
 </nav>
+
+
+

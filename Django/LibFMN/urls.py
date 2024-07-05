@@ -22,7 +22,7 @@ urlpatterns = [
    path("",views.imgAutorMes, name="imgAutorMes"),
    path("",views.app, name="app"),
    path("administrador",views.administrador, name="administrador.html"),
-   path("inicioadmin",views.inicioadmin, name="inicioadmin.html"),
+   path("admin",views.inicioadmin, name="inicioadmin.html"),
    path("inicioCliente",views.iniciocliente, name="iniciocliente.html")
    
 ]

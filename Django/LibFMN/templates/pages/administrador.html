@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
-    
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
-    <style>
-        /* Estilos adicionales si es necesario */
-    </style>
+    <title>Document</title>
+
+    {% load static%}
+
+  <link rel="stylesheet" href="{% static 'css/diseño.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  <script src="https://kit.fontawesome.com/5c058e9f8c.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
     <div class="container">
         <h1 class="mt-4 mb-4">Panel de Administrador</h1>
 
@@ -106,10 +109,23 @@
         </div>
         {% endif %}
     </div>
-
+    
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script>
-        $(document).ready(function() {
-            // Manejar el envío del formulario de creación de usuario
-            $('#crearUsuarioForm').on('submit', function(event) {
-                event.preventDefault();  // Evitar el envío estándar del formulario
+    <script src="{% static "js/app.js" %}"></script>
+
+
+    
+</body>
+<script>
+$(document).ready(function() {
+  $('#crearUsuarioForm').on('submit', function(event) {
+      event.preventDefault();
+      
+  });
+});
+</script>
+
+
+</html>
+              
+    
