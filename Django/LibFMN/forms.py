@@ -1,11 +1,15 @@
-# forms.py
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from .models import CustomUser
+from .forms import RegistroUsuarioForm
 
-class CrearUsuarioForm(forms.ModelForm):
+
+class RegistroUsuarioForm(UserCreationForm):
     password = forms.CharField(label=_('Contraseña'), widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label=_('Confirmar Contraseña'), widget=forms.PasswordInput)
+
     genero_choices = [
         ('Hombre', 'Hombre'),
         ('Mujer', 'Mujer'),
@@ -14,8 +18,8 @@ class CrearUsuarioForm(forms.ModelForm):
     genero = forms.ChoiceField(label=_('Género'), choices=genero_choices)
 
     class Meta:
-        model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'genero', 'password']
+        model = CustomUser
+        fields = ['nombre', 'apellido', 'email', 'genero', 'password', 'confirm_password']
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -30,3 +34,7 @@ class CrearUsuarioForm(forms.ModelForm):
         if password and confirm_password and password != confirm_password:
             raise ValidationError(_('Las contraseñas no coinciden.'))
         return cleaned_data
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(label=_('Correo electrónico'))
+    password = forms.CharField(label=_('Contraseña'), widget=forms.PasswordInput)

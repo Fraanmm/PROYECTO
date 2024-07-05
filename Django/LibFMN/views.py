@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .forms import CrearUsuarioForm
+from .forms import RegistroUsuarioForm, LoginForm
+from .models import CustomUser
 
-# Views para renderizar plantillas HTML
+
 def index(request):
     context = {}
     return render(request, "pages/index.html", context)
@@ -81,10 +82,10 @@ def app(request):
     context = {}
     return render(request, "js/app.js", context)
 
-# Vista para la página de inicio de administrador
+
 def inicioadmin(request):
     if request.method == 'POST':
-        # Procesar formulario de inicio de sesión
+        
         if 'login_form' in request.POST:
             login_form = LoginForm(request.POST)
             if login_form.is_valid():
@@ -99,7 +100,7 @@ def inicioadmin(request):
         else:
             login_form = LoginForm(request.POST)
         
-        # Procesar formulario de registro
+        
         if 'registro_form' in request.POST:
             registro_form = RegistroForm(request.POST)
             if registro_form.is_valid():
@@ -133,14 +134,47 @@ def administrador(request):
     if request.method == 'POST':
         form = CrearUsuarioForm(request.POST)
         if form.is_valid():
-            # Guardar el usuario si el formulario es válido
+            
             form.save()
             messages.success(request, 'Usuario creado correctamente.')
             return redirect('administrador')
 
     return render(request, 'pages/administrador.html', {'form': form})
 
-# Vista para la página de inicio de cliente
 def iniciocliente(request):
-    context = {}
-    return render(request, "pages/iniciocliente.html", context)
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        registro_form = RegistroUsuarioForm(request.POST)
+        
+        if registro_form.is_valid():
+            username = registro_form.cleaned_data['username']
+            email = registro_form.cleaned_data['email']
+            password = registro_form.cleaned_data['password']
+            genero = registro_form.cleaned_data['genero']
+            nombre = registro_form.cleaned_data['nombre']
+            apellido = registro_form.cleaned_data['apellido']
+            
+            # Validar el dominio del correo electrónico
+            if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
+                messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
+            else:
+                # Crear una instancia de CustomUser y guardarla
+                new_user = CustomUser.objects.create_user(username=username, email=email, password=password, genero=genero, nombre=nombre, apellido=apellido)
+                new_user.save()
+                
+                messages.success(request, 'Usuario creado correctamente.')
+                return redirect('iniciocliente')  # Redirigir a la misma página de inicio de cliente después del registro exitoso
+        
+        # Si hay errores en el formulario de registro, mostrarlos
+        else:
+            messages.error(request, 'Por favor corrige los errores en el formulario.')
+
+    else:
+        login_form = LoginForm()
+        registro_form = RegistroUsuarioForm()
+
+    context = {
+        'login_form': login_form,
+        'registro_form': registro_form,
+    }
+    return render(request, 'pages/iniciocliente.html', context)
