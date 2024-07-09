@@ -81,6 +81,7 @@ def app(request):
 
 
 def inicioCliente(request):
+    
     if request.method == 'POST':
         if 'login' in request.POST:
             email = request.POST['Email']
@@ -107,9 +108,9 @@ def inicioCliente(request):
                 Direccion=direccion
             )
             messages.success(request, 'Registro exitoso')
-            return redirect('inicio_cliente')
+            return redirect('iniciocliente')
 
-    return render(request, 'iniciocliente.html')
+    return render(request, 'pages/inicioCliente.html')
 
 
 
