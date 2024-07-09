@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .forms import RegistroUsuarioForm, LoginForm
-from .models import CustomUser
+from .models import Cliente
 
 
 def index(request):
@@ -82,101 +80,40 @@ def app(request):
     return render(request, "js/app.js", context)
 
 
-def inicioadmin(request):
+def inicioCliente(request):
     if request.method == 'POST':
-        
-        if 'login_form' in request.POST:
-            login_form = LoginForm(request.POST)
-            if login_form.is_valid():
-                username = login_form.cleaned_data['username']
-                password = login_form.cleaned_data['password']
-                user = authenticate(username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return redirect('administrador')
-                else:
-                    messages.error(request, 'Usuario o contraseña incorrectos.')
-        else:
-            login_form = LoginForm(request.POST)
-        
-        
-        if 'registro_form' in request.POST:
-            registro_form = RegistroForm(request.POST)
-            if registro_form.is_valid():
-                username = registro_form.cleaned_data['username']
-                email = registro_form.cleaned_data['email']
-                password = registro_form.cleaned_data['password']
-                
-                if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
-                    messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
-                else:
-                    new_user = User.objects.create_user(username=username, email=email, password=password)
-                    new_user.save()
-                    messages.success(request, 'Usuario creado correctamente.')
-                    return redirect('inicioadmin')
-        else:
-            registro_form = RegistroForm(request.POST)
+        if 'login' in request.POST:
+            email = request.POST['Email']
+            password = request.POST['Password']
+            try:
+                user = Cliente.objects.get(Email=email, Password=password)
+                messages.success(request, 'Inicio de sesión exitoso')
+                return redirect('index')
+            except Cliente.DoesNotExist:
+                messages.error(request, 'Credenciales inválidas')
 
-    else:
-        login_form = LoginForm()
-        registro_form = RegistroForm()
+        elif 'register' in request.POST:
+            nombres = request.POST['Nombres']
+            password = request.POST['Password']
+            email = request.POST['Email']
+            run = request.POST['Run']
+            direccion = request.POST.get('Direccion', '')
 
-    context = {
-        'login_form': login_form,
-        'registro_form': registro_form,
-    }
-    return render(request, 'pages/inicioadmin.html', context)
+            Cliente.objects.create(
+                Nombres=nombres,
+                Password=password,
+                Email=email,
+                Run=run,
+                Direccion=direccion
+            )
+            messages.success(request, 'Registro exitoso')
+            return redirect('inicio_cliente')
+
+    return render(request, 'iniciocliente.html')
+
+
 
 def administrador(request):
-    form = CrearUsuarioForm()
+    context = {}
+    return render(request, "pages/administrador.html", context)
 
-    if request.method == 'POST':
-        form = CrearUsuarioForm(request.POST)
-        if form.is_valid():
-            
-            form.save()
-            messages.success(request, 'Usuario creado correctamente.')
-            return redirect('administrador')
-
-    return render(request, 'pages/administrador.html', {'form': form})
-
-def iniciocliente(request):
-    login_form = LoginForm()
-    registro_form = RegistroUsuarioForm()
-
-    if request.method == 'POST':
-        if 'login_form' in request.POST:
-            login_form = LoginForm(request.POST)
-            if login_form.is_valid():
-                username = login_form.cleaned_data['username']
-                password = login_form.cleaned_data['password']
-                user = authenticate(username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return redirect('index')
-                else:
-                    messages.error(request, 'Usuario o contraseña incorrectos.')
-        elif 'registro_form' in request.POST:
-            registro_form = RegistroUsuarioForm(request.POST)
-            if registro_form.is_valid():
-                username = registro_form.cleaned_data['username']
-                email = registro_form.cleaned_data['email']
-                password = registro_form.cleaned_data['password']
-                genero = registro_form.cleaned_data['genero']
-                nombre = registro_form.cleaned_data['nombre']
-                apellido = registro_form.cleaned_data['apellido']
-                
-                if not (email.endswith('@duocuc.cl') or email.endswith('@gmail.com') or email.endswith('@hotmail.com')):
-                    messages.error(request, 'El correo electrónico debe ser de Duoc UC, Gmail o Hotmail.')
-                else:
-                    new_user = CustomUser.objects.create_user(username=username, email=email, password=password, genero=genero, nombre=nombre, apellido=apellido)
-                    new_user.save()
-                    
-                    messages.success(request, 'Usuario creado correctamente.')
-                    return redirect('index')  
-
-    context = {
-        'login_form': login_form,
-        'registro_form': registro_form,
-    }
-    return render(request, 'pages/iniciocliente.html', context)

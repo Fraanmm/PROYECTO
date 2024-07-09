@@ -1,41 +1,31 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-class CustomUserManager(BaseUserManager):
-    def create_user(self, email, nombre, apellido, rut, genero, tipo_trabajador, password=None, **extra_fields):
-        if not email:
-            raise ValueError('El email debe estar configurado.')
-        email = self.normalize_email(email)
-        user = self.model(email=email, nombre=nombre, apellido=apellido, rut=rut, genero=genero, tipo_trabajador=tipo_trabajador, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self, email, nombre, apellido, rut, genero, tipo_trabajador, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-        return self.create_user(email, nombre, apellido, rut, genero, tipo_trabajador, password, **extra_fields)
-
-class CustomUser(AbstractBaseUser):
+class Cliente(models.Model):
+    run = models.CharField(max_length=9, unique=True)
+    nombres = models.CharField(max_length=255)
+    direccion = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(unique=True)
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    rut = models.CharField(max_length=12)
-    genero_choices = [
-        ('Hombre', 'Hombre'),
-        ('Mujer', 'Mujer'),
-        ('Otro', 'Otro')
-    ]
-    genero = models.CharField(max_length=10, choices=genero_choices)
-    tipo_trabajador = models.CharField(max_length=100)
+    password = models.CharField(max_length=255)
 
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+class Pago(models.Model):
+    monto = models.DecimalField(max_digits=10, decimal_places=2)
 
-    objects = CustomUserManager()
+class Producto(models.Model):
+    nombres = models.CharField(max_length=255)
+    foto = models.ImageField(upload_to='productos/')
+    descripcion = models.TextField(null=True, blank=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.PositiveIntegerField()
 
-    USERNAME_FIELD = 'email'
+class Compras(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    pago = models.ForeignKey(Pago, on_delete=models.CASCADE)
+    fecha_compras = models.DateField()
+    monto = models.DecimalField(max_digits=10, decimal_places=2)
+    estado = models.CharField(max_length=50, null=True, blank=True)
 
-    def __str__(self):
-        return self.email
+class DetalleCompras(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    compras = models.ForeignKey(Compras, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField()
+    precio_compra = models.DecimalField(max_digits=10, decimal_places=2)

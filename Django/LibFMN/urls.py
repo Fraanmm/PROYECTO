@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
    path("",views.index, name="index"),
    path("autorMes",views.autorMes, name="autorMes"),
@@ -21,8 +22,8 @@ urlpatterns = [
    path("",views.dsdo, name="dsdo"),
    path("",views.imgAutorMes, name="imgAutorMes"),
    path("",views.app, name="app"),
-   path("administrador",views.administrador, name="administrador.html"),
-   path("admin",views.inicioadmin, name="inicioadmin.html"),
-   path("inicioCliente",views.iniciocliente, name="iniciocliente.html")
+   path("administrador",views.administrador, name="administrador"),
+   path("inicioCliente",views.inicioCliente, name="inicioCliente")
+   
    
 ]
