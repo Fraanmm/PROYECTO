@@ -118,20 +118,20 @@
     <li>
       <a href="#">Libros</a>
       <ul class="submenu">
-        <li><a href="#libros">Libros</a></li>
-        <li><a href="#libros-importados">Libros Importados</a></li>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'harryPotter'%}">Harry Potter</a></li>
         <li><a href="#infantil-juvenil">Infantil y Juvenil</a></li>
         <li><a href="#juegos-accesorios">Juegos y Accesorios</a></li>
-        <li><a href="#textos-escolares">Textos Escolares</a></li>
+        <li><a href="{% url 'promocionesEscolares'%}">Escolares</a></li>
         <li><a href="{% url 'destacado' %}">Destacado</a></li>
-        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="{% url 'descuentos'%}">Descuentos</a></li>
       </ul>
     </li>
     <li>
       <a href="#">Nosotros</a>
       <ul class="submenu">
         <li><a href="#">¿Quienes Somos?</a></li>
-        <li><a href="{% static 'index2.html' %}">Servicio al Cliente</a></li>
+        <li><a href="{% url 'index2' %}">Servicio al Cliente</a></li>
         <li>
           <a
             href="https://www.google.com/maps/search/tiendas+antartica/@-33.4907906,-70.6534741,11z?entry=ttu"

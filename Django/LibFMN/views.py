@@ -115,6 +115,11 @@ def inicioCliente(request):
 
 
 def administrador(request):
-    context = {}
-    return render(request, "pages/administrador.html", context)
+    
+    if request.user.is_authenticated and request.user.username.startswith('root'):
+        return render(request, "pages/administrador.html")
+    else:
+        return redirect('index')
+    
+   
 
