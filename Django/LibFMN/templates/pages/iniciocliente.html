@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión Usuario</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/diseño.css' %}">
+</head>
+
+<body>
+  <main>
+    <form method="post" autocomplete="off">
+      {% csrf_token %}
+      <h2>Bienvenido</h2>
+
+      <div class="input-group">
+        <div class="input-container">
+          <input type="text" name="Email" placeholder="Correo" required>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <input type="password" name="Password" placeholder="Contraseña" required>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <a href="#">Términos y Condiciones</a>
+      <input type="submit" name="login" class="btn" value="Enviar">
+    </form>
+
+    <button id="register-button" class="btn">Registrarse</button>
+
+    <form id="register-form" method="post" autocomplete="off" style="display: none;">
+      {% csrf_token %}
+      <h2>Regístrate</h2>
+
+      <div class="input-group">
+        <div class="input-container">
+          <input type="text" name="Nombres" placeholder="Nombres" required>
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-container">
+          <input type="password" name="Password" placeholder="Contraseña" required>
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="input-container">
+          <input type="text" name="Email" placeholder="Correo" required>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-container">
+          <input type="text" name="Run" placeholder="RUT" required>
+        </div>
+        <div class="input-container">
+          <input type="text" name="Direccion" placeholder="Dirección">
+        </div>
+      </div>
+
+      <input type="submit" name="register" class="btn" value="Registrar">
+    </form>
+  </main>
+
+  {% include 'base/footer.html' %}
+
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'app.js' %}"></script>
+</body>
+
+</html>
+

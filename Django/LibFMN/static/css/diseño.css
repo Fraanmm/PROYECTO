@@ -866,3 +866,21 @@ header{
         gap: 0;
     }
 }
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  cursor: pointer; /* Cambio de cursor al pasar por encima */
+  padding: 15px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #555; /* Color de fondo al pasar por encima */
+}

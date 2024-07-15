@@ -81,15 +81,17 @@ def app(request):
 
 
 def inicioCliente(request):
-    
     if request.method == 'POST':
         if 'login' in request.POST:
             email = request.POST['Email']
             password = request.POST['Password']
             try:
-                user = Cliente.objects.get(Email=email, Password=password)
-                messages.success(request, 'Inicio de sesión exitoso')
-                return redirect('index')
+                user = Cliente.objects.get(email=email, password=password)
+                if user.run.startswith('root'):
+                    return redirect('administrador')  
+                else:
+                    messages.success(request, 'Inicio de sesión exitoso')
+                    return redirect('index')  
             except Cliente.DoesNotExist:
                 messages.error(request, 'Credenciales inválidas')
 
@@ -101,14 +103,14 @@ def inicioCliente(request):
             direccion = request.POST.get('Direccion', '')
 
             Cliente.objects.create(
-                Nombres=nombres,
-                Password=password,
-                Email=email,
-                Run=run,
-                Direccion=direccion
+                nombres=nombres,
+                password=password,
+                email=email,
+                run=run,
+                direccion=direccion
             )
-            messages.success(request, 'Registro exitoso')
-            return redirect('iniciocliente')
+            messages.success(request, 'Registro exitoso. Por favor, inicia sesión.')
+            return redirect('inicioCliente')  
 
     return render(request, 'pages/inicioCliente.html')
 
