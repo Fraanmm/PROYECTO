@@ -1,53 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const loginButton = document.getElementById("loginButton");
-  const loginForm = document.getElementById("loginForm");
-  const loginFormContent = document.getElementById("loginFormContent");
-  const registerButton = document.getElementById("register-button"); // Agregamos selección del botón de registro
-  const registerForm = document.getElementById("register-form"); // Agregamos selección del formulario de registro
-  const iconoCerrar = document.querySelector(".icono-cerrar");
-
-  // Función para mostrar el formulario de registro
-  registerButton.addEventListener("click", () => {
-    registerForm.style.display = "block";
-    loginForm.style.display = "none";
-  });
-
-  // Función para cerrar el formulario
-  iconoCerrar.addEventListener("click", () => {
-    loginForm.classList.remove("active");
-    registerForm.style.display = "none";
-    loginFormContent.style.display = "block";
-  });
-
-  const registrarLink = document.querySelector(".registrar-link");
-  const loginLink = document.querySelector(".login-link");
-
-  registrarLink.addEventListener("click", () => {
-    loginForm.classList.add("active");
-    registroFormContent.style.display = "block";
-    loginFormContent.style.display = "none";
-  });
-
-  loginLink.addEventListener("click", () => {
-    loginFormContent.style.display = "block";
-    registroFormContent.style.display = "none";
-  });
-
-  const btnCart = document.querySelector(".container-cart-icon");
+  const productsList = document.querySelector(".container-items");
+  const btnCart = document.getElementById("btnCart");
   const containerCartProducts = document.querySelector(".container-cart-products");
+  const rowProduct = document.querySelector(".row-product");
+  const totalAmount = document.getElementById("totalAmount");
+  const cartItemCount = document.getElementById("cartItemCount");
+  let allProducts = [];
 
+  // Mostrar/Ocultar carrito
   btnCart.addEventListener("click", () => {
     containerCartProducts.classList.toggle("hidden-cart");
+    showCart();
   });
 
-  const rowProduct = document.querySelector(".row-product");
-  const productsList = document.querySelector(".container-items");
-  let allProducts = [];
-  const valorTotal = document.querySelector(".total-pagar");
-  const countProducts = document.querySelector("#contador-productos");
-  const cartEmpty = document.querySelector(".cart-empty");
-  const cartTotal = document.querySelector(".cart-total");
-
+  // Agregar producto al carrito
   productsList.addEventListener("click", (e) => {
     if (e.target.classList.contains("btn-add-cart")) {
       const product = e.target.parentElement;
@@ -70,26 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         allProducts.push(infoProduct);
       }
 
-      showHTML();
+      showCart();
     }
   });
 
-  rowProduct.addEventListener("click", (e) => {
-    if (e.target.classList.contains("icon-close")) {
-      const product = e.target.parentElement;
-      const title = product.querySelector("p").textContent;
-
-      allProducts = allProducts.filter((product) => product.title !== title);
-
-      showHTML();
-    }
-  });
-
-  const showHTML = () => {
+  // Mostrar productos en el carrito
+  function showCart() {
     if (allProducts.length === 0) {
       rowProduct.innerHTML = `<p>No hay productos en el carrito</p>`;
-      valorTotal.innerText = "$0";
-      countProducts.innerText = "0";
+      totalAmount.innerText = "$0.00";
+      cartItemCount.innerText = "0";
       return;
     }
 
@@ -107,9 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="titulo-producto-carrito">${product.title}</p>
           <span class="precio-producto-carrito">$${(product.price * product.quantity).toFixed(2)}</span>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <button class="icon-close">Eliminar</button>
       `;
 
       rowProduct.appendChild(containerProduct);
@@ -118,10 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
       totalOfProducts += product.quantity;
     });
 
-    valorTotal.innerText = `$${total.toFixed(2)}`;
-    countProducts.innerText = totalOfProducts;
-  };
+    totalAmount.innerText = `$${total.toFixed(2)}`;
+    cartItemCount.innerText = totalOfProducts;
+  }
+
+  // Eliminar producto del carrito
+  rowProduct.addEventListener("click", (e) => {
+    if (e.target.classList.contains("icon-close")) {
+      const productTitle = e.target.previousElementSibling.querySelector(".titulo-producto-carrito").textContent;
+      allProducts = allProducts.filter((product) => product.title !== productTitle);
+      showCart();
+    }
+  });
+
+ 
+  const btnCheckout = document.getElementById("btnCheckout");
+  btnCheckout.addEventListener("click", () => {
+    alert("Función de pago aún no implementada. Esta es una simulación.");
+    
+  });
 });
+
 
 /* barra busqueda */
 document.getElementById("icon-menu").addEventListener("click", mostrar_menu);
@@ -133,10 +104,7 @@ function mostrar_menu(){
 }
 
 
-//Buscador de contenido
 
-
-//Ejecutando funciones
 document.getElementById("icon-search").addEventListener("click", mostrar_buscador);
 document.getElementById("cover-ctn-search").addEventListener("click", ocultar_buscador);
 
@@ -166,7 +134,7 @@ function ocultar_buscador(){
 }
 
 
-// Mostrar la caja de sugerencias al escribir en la barra de búsqueda
+
 document.getElementById('inputSearch').addEventListener('input', function() {
   var searchTerm = this.value.toLowerCase();
   var listItems = document.querySelectorAll('#box-search li');
@@ -181,12 +149,3 @@ document.getElementById('inputSearch').addEventListener('input', function() {
   document.getElementById('box-search').style.display = 'block';
 });
 
-function scrollToTop() {
-  document.body.scrollTop = 0; // Para Safari
-  document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
-}
-
-// Función para desplazar la página hacia abajo
-function scrollToBottom() {
-  window.scrollTo(0, document.body.scrollHeight);
-}

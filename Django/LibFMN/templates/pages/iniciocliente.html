@@ -12,54 +12,75 @@
 
 <body>
   <main>
-    <form method="post" autocomplete="off">
-      {% csrf_token %}
-      <h2>Bienvenido</h2>
+    <!-- Contenedor del formulario de inicio de sesión y registro -->
+<div class="fondo" id="loginForm">
+    <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+    <!-- Formulario de inicio de sesión -->
+    <div class="contenedor-form Login" id="loginFormContent">
+        <h2>Iniciar Sesión</h2>
+        <form action="{% url 'inicioCliente' %}" method="post">
+            {% csrf_token %}
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" id="email" name="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="contrasena" name="Password" required>
+                <label for="contrasena">Contraseña</label>
+            </div>
+            <div class="recordar">
+                <label for="recordar"><input type="checkbox" id="recordar" name="recordar">Recordar Sesión</label>
+                <a href="#">¿Olvidé la Contraseña?</a>
+            </div>
+            <button type="submit" name="login" id="loginButton" class="btn">Iniciar Sesión</button>
+            <div class="registrar">
+                <p>¿No tienes cuenta?<a href="#" class="registrar-link">Registrarse</a></p>
+            </div>
+        </form>
+    </div>
+    <!-- Formulario de registro -->
+    <div class="contenedor-form registrar" id="registroFormContent">
+        <h2>Registrarse</h2>
+        <form action="{% url 'inicioCliente' %}" method="post" id="registroForm">
+            {% csrf_token %}
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-user"></i></span>
+                <input type="text" id="nombreUsuario" name="Nombres" required>
+                <label for="nombreUsuario">Nombre de Usuario</label>
+            </div>
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" id="correo" name="Email" required>
+                <label for="correo">Email</label>
+            </div>
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="contrasena" name="Password" required>
+                <label for="contrasena">Contraseña</label>
+            </div>
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-id-card"></i></span>
+                <input type="text" id="run" name="Run" required>
+                <label for="run">RUN</label>
+            </div>
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-home"></i></span>
+                <input type="text" id="direccion" name="Direccion">
+                <label for="direccion">Dirección</label>
+            </div>
+            <div class="recordar">
+                <label for="aceptar"><input type="checkbox" id="aceptar" name="aceptar" required>Acepto los términos y condiciones</label>
+            </div>
+            <button type="submit" name="register" id="registrarButton" class="btn">Registrarme</button>
+            <div class="registrar">
+                <p>¿Tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+            </div>
+        </form>
+    </div>
+</div>
 
-      <div class="input-group">
-        <div class="input-container">
-          <input type="text" name="Email" placeholder="Correo" required>
-          <i class="fa-solid fa-envelope"></i>
-        </div>
-      </div>
-
-      <div class="input-container">
-        <input type="password" name="Password" placeholder="Contraseña" required>
-        <i class="fa-solid fa-lock"></i>
-      </div>
-      <a href="#">Términos y Condiciones</a>
-      <input type="submit" name="login" class="btn" value="Enviar">
-    </form>
-
-    <button id="register-button" class="btn">Registrarse</button>
-
-    <form id="register-form" method="post" autocomplete="off" style="display: none;">
-      {% csrf_token %}
-      <h2>Regístrate</h2>
-
-      <div class="input-group">
-        <div class="input-container">
-          <input type="text" name="Nombres" placeholder="Nombres" required>
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="input-container">
-          <input type="password" name="Password" placeholder="Contraseña" required>
-          <i class="fa-solid fa-lock"></i>
-        </div>
-        <div class="input-container">
-          <input type="text" name="Email" placeholder="Correo" required>
-          <i class="fa-solid fa-envelope"></i>
-        </div>
-        <div class="input-container">
-          <input type="text" name="Run" placeholder="RUT" required>
-        </div>
-        <div class="input-container">
-          <input type="text" name="Direccion" placeholder="Dirección">
-        </div>
-      </div>
-
-      <input type="submit" name="register" class="btn" value="Registrar">
-    </form>
   </main>
 
   {% include 'base/footer.html' %}
